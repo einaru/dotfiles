@@ -1,5 +1,5 @@
 
-if [ -d "$HOME/.local/share/node_modules/bin" ]; then
+if [ -d "$HOME/.local/share/node_modules/bin" ] ; then
 	PATH="$HOME/.local/share/node_modules/bin:$PATH"
 fi
 
@@ -10,7 +10,7 @@ if [ -d "$HOME/.go" ]; then
 	fi
 fi
 
-if [ -d "$HOME/.local/bin" ]; then
+if [ -d "$HOME/.local/bin" ]; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
@@ -23,4 +23,3 @@ if [ -f /usr/bin/virtualenvwrapper.sh ]; then
 	[ ! -d $WORKON_HOME ] && mkdir -p $WORKON_HOME
 	source /usr/bin/virtualenvwrapper.sh
 fi
-
