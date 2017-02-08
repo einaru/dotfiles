@@ -23,12 +23,12 @@ zle -N down-line-or-beginning-search
 bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
 bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
+fpath=($HOME/.zsh/fpath $fpath)
+
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 
 zstyle ':completion:*' rehash true
-
-fpath=($HOME/.zsh/fpath $fpath)
 
 PURE_CMD_MAX_EXEC_TIME=10
 prompt pure
