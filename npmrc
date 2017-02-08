@@ -1,0 +1,9 @@
+;;;; npm config file
+
+cache=~/.cache/npm
+
+init.author.name=Einar Uvsløkk
+init.author.email=einar.uvslokk@gmail.com
+init.author.url=https://github.com/einaru
+
+prefix=~/.local/share/node_modules
