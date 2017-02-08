@@ -40,3 +40,12 @@
 
 	# list remotes
 	rem = "!git config -l | grep remote.*url | tail -n +2"
+
+	root = rev-parse --show-toplevel
+
+	update-submodules = submodule update --init --recursive
+
+	# Archiving
+	tar = ! "tar() { git archive --format tar --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; tar"
+	targz = ! "targz() { git archive --format tar.gz --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; targz"
+	zip = ! "zip() { git archive --format zip --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; zip"
