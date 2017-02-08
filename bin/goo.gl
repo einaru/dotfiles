@@ -1,0 +1,88 @@
+#!/usr/bin/env python
+"""
+    Google URL shortener
+    ~~~~~~~~~~~~~~~~~~~~
+
+    Copyright (c) 2013 - 2015 Einar Uvsløkk <einar.uvslokk@gmail.com>
+    Free use of this software is granted under the terms of the
+    GNU General Public License (GPL) version 3 or later.
+"""
+import sys
+import json
+import logging
+import urllib.request
+import argparse
+
+__version__ = '0.0.2'
+
+
+API = {
+    'host': 'https://www.googleapis.com',
+    'path': '/urlshortener/v1/url',
+    'key': 'AIzaSyAIV9lyGkaeCtP0sB7xLw1gfoFgpt_Svk4'
+}
+
+
+def get_domain(key=None):
+    domain = API.get('host') + API.get('path')
+    if key:
+        logging.debug('API key:  ' + key)
+        domain = '{}?key={}'.format(domain, key)
+    return domain
+
+
+def googl(url, key=None):
+    data = json.dumps({'longUrl': url}).encode('utf-8')
+    headers = {'content-type': 'application/json'}
+    domain = get_domain(key)
+    logging.debug('Domain:   ' + domain)
+    logging.debug('Long url: ' + url)
+    logging.info('Requesting shorter url from google')
+    req = urllib.request.Request(domain, data, headers)
+    res = json.loads(urllib.request.urlopen(req).read().decode('utf-8'))
+    print(res.get('id'))
+
+
+def parse_command_line():
+    p = argparse.ArgumentParser(description='Shorten URLs through goo.gl')
+    p.add_argument('urls', metavar='url', type=str, nargs='+',
+                   help='one or more urls to shorten')
+    p.add_argument('-k', '--key', default=API.get('key'),
+                   help='use and API-key to authorize with goo.gl')
+    p.add_argument('-v', '--verbose', dest='verbosity',
+                   action='count', default=0,
+                   help='increase logging verbosity, -v enables info messages '
+                   'and -vv enables debug messages')
+    p.add_argument('-V', '--version', action='version',
+                   version='%(prog)s {}'.format(__version__),
+                   help='show program version and exit')
+
+    args = p.parse_args()
+
+    level = max(3 - args.verbosity, 0) * 10
+    logging.basicConfig(stream=sys.stderr, level=level,
+                        format='(%(levelname)-5s): %(message)s')
+
+    return args
+
+
+def main():
+    retval = 0
+    try:
+        args = parse_command_line()
+        for url in args.urls:
+            googl(url, args.key)
+    except Exception as e:
+        if args.verbosity > 1:
+            logging.exception(e)
+        else:
+            logging.error(e)
+        retval = 1
+    finally:
+        logging.shutdown()
+
+    return retval
+
+
+if __name__ == '__main__':
+    sys.exit(main())

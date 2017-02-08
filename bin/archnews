@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+"""
+    Display news from archlinux.org
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Copyright: (c) 2014 Einar Uvsløkk
+    Free use of this software is granted under the terms of the
+    GNU General Public License (GPL) version 3 or later.
+"""
+import argparse
+import datetime
+import feedparser
+import time
+
+NEWSURL = 'https://www.archlinux.org/feeds/news/'
+
+
+def _ts_to_dt(ts):
+    """Convert timestamp object to datetime object."""
+    return datetime.datetime.fromtimestamp(time.mktime(ts))
+
+
+def parse_cmd_line():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--days', metavar='n', type=int, default=30,
+                        help='show news from the last n days')
+    parser.add_argument('-s', '--since', metavar='yyyy-mm-dd',
+                        help='show news between now and a given date')
+
+    args = parser.parse_args()
+
+    return args
+
+
+def pprint_entry(entry, published):
+    date = published.strftime('%c')
+    print('\033[1m{}\033[0m ({})'.format(entry.title, date))
+    print('└─ \033[0m{}\033[0m'.format(entry.link))
+
+
+if __name__ == '__main__':
+    args = parse_cmd_line()
+    feed = feedparser.parse(NEWSURL)
+    now = datetime.datetime.now()
+
+    if args.since:
+        ts = time.strptime(args.since, '%Y-%m-%d')
+        dt = _ts_to_dt(ts)
+        cutoff = now - dt
+    else:
+        cutoff = datetime.timedelta(days=args.days)
+
+    for entry in feed.entries:
+        dt = _ts_to_dt(entry.published_parsed)
+        if (now - dt) <= cutoff:
+            pprint_entry(entry, dt)

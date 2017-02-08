@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+"""
+    Display terminal colors with codes
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Copyright (c) 2013 Einar Uvsløkk <einar.uvslokk@gmail.com>
+    Free use of this software is granted under the terms of the
+    GNU General Public License (GPL) version 3 or later.
+"""
+
+for style in range(8):
+    for fg in range(30, 38):
+        s1 = []
+        for bg in range(40, 48):
+            fmt = ';'.join([str(style), str(fg), str(bg)])
+            s1.append('\x1b[{s}m {s} \x1b[0m'.format(s=fmt))
+        print(''.join(s1))
+    print('\n')

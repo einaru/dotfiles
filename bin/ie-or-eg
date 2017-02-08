@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+"""
+    I.e. or e.g. reminder
+    ~~~~~~~~~~~~~~~~~~~~~
+
+    Copyright: (c) 2014 Einar Uvsløkk
+    Free use of this software is granted under the terms of the
+    GNU General Public License (GPL) version 3 or later.
+"""
+import argparse
+
+ie = {
+    'term': 'i.e.',
+    'usage': 'When you are adding extra information to clarify something that '
+             'was previously stated. This information is finite, meaning the '
+             'only possibilities are the things you list after the "i.e.".',
+    'replace': 'in other words',
+    'latin': 'id est',
+    'english': 'that is',
+}
+eg = {
+    'term': 'e.g.',
+    'usage': 'When you are listing examples of something you stated '
+             'previously. Using "e.g." means there are more possibilities '
+             'than the one you are stating.',
+    'replace': 'for example',
+    'latin': 'exempli gratia',
+    'english': 'for the sake of example',
+}
+
+# TODO:2014-10-17:einar: fix word wrapping when printing lines > term width
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description='Display tips for when to use i.e. and e.g.')
+    parser.add_argument('-f', '--full', action='store_true',
+                        help='display more descriptive usage tips')
+
+    args = parser.parse_args()
+
+    for kw in [ie, eg]:
+        if args.full:
+            print('{term} "{latin}", meaning "{english}"'.format(**kw))
+            print('Replace with "{replace}".\n{usage}'.format(**kw))
+            print()
+        else:
+            print('{term} -> {replace}'.format(**kw))
