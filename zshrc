@@ -3,7 +3,7 @@ unsetopt beep
 bindkey -e
 zstyle :compinstall filename $HOME/.zshrc
 
-HISTFILE=$HOME/.zsh-history
+HISTFILE=$HOME/.histfile
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
