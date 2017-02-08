@@ -21,7 +21,7 @@ alias cdgr='cd "$(git root)"'
 
 alias scp='rsync -avzP'
 
-alis vimrs='vim --remote-silent'
+alias vimrs='vim --remote-silent'
 alias gvimrs='gvim --remote-silent'
 
 # Mirror stdout to stderr, useful for seeing data going through a pipe
