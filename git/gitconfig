@@ -1,0 +1,42 @@
+[user]
+	name = Einar Uvsløkk
+	email = einar.uvslokk@gmail.com
+
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore-global
+
+[merge]
+	tool = vimdiff
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+
+# Alias
+[alias]
+	st = status -s
+	amend = commit --amend
+
+	b = branch
+
+	c = commit
+
+	co = checkout
+
+	# log commands
+	filelog = log -u
+	fl = log -u
+	ls = log --graph --oneline --decorate
+
+	# reset commands
+	r = reset
+	r1 = reset HEAD^
+	r2 = reset HEAD^^
+	rh = reset --hard
+	rh1 = reset HEAD^ --hard
+	rh2 = reset HEAD^^ --hard
+
+	# list remotes
+	rem = "!git config -l | grep remote.*url | tail -n +2"
