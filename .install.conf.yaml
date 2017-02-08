@@ -10,6 +10,7 @@
     ~/.config/nvim/init.vim: vim/vimrc
     ~/.dot: ''
     ~/.irssi:
+    ~/.screenrc:
     ~/.shell:
     ~/.vim:
     ~/.zsh:
