@@ -1,3 +1,6 @@
 [submodule ".dotbot"]
 	path = .dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "zsh/lib/pure"]
+	path = zsh/lib/pure
+	url = https://github.com/sindresorhus/pure
