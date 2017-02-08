@@ -12,6 +12,7 @@
     ~/.irssi:
     ~/.screenrc:
     ~/.shell:
+    ~/.tmux.conf:
     ~/.vim:
     ~/.zsh:
     ~/.zshrc:
