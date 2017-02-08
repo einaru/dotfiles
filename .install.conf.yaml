@@ -7,8 +7,10 @@
 
 - link:
     ~/.bashrc:
+    ~/.config/nvim/init.vim: vim/vimrc
     ~/.dot: ''
     ~/.shell:
+    ~/.vim:
     ~/.zsh:
     ~/.zshrc:
 

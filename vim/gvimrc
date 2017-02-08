@@ -1,0 +1,16 @@
+"
+" Gvim configuration file
+"
+" Author: Einar Uvsløkk <einar.uvslokk@gmail.com>
+" Source: https://github.com/einaru/dotfiles
+"
+set guioptions+=c        " use console dialogs
+set guioptions-=T        " disable toolbar
+set guioptions-=m        " disable menubar
+set guioptions-=r        " disable scrollbars (right)
+set guioptions-=R        " ... also in vsplit
+set guioptions-=l        " disable scrollbars (left)
+set guioptions-=L        " ... also in vsplit
+
+set guifont=Monospace\ 10
+set background=light
