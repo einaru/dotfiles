@@ -31,6 +31,17 @@ if count(g:enabled_plugins, 'writing')
 endif
 
 if count(g:enabled_plugins, 'programming')
+	" Snippets
+	Plugin 'SirVer/ultisnips'
+	let g:UltiSnipsExpandTrigger="<tab>"
+	let g:UltiSnipsJumpForwardTrigger="<c-b>"
+	let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+	let g:UltiSnipsEditSplit="horizontal"
+	Plugin 'honza/vim-snippets'
+	let g:ultisnips_python_quoting_style="single"
+	let g:ultisnips_python_triple_quoting_style="double"
+	let g:ultisnips_python_style="google"
+
 	" Python
 	Plugin 'hynek/vim-python-pep8-indent'
 	Plugin 'nvie/vim-flake8'
