@@ -1,0 +1,12 @@
+#compdef goo.gl
+
+args=(
+	'(-k --key)'{-k,--key=}'[use and API-key to authorize with goo.gl]'
+	'(-v --verbose)'{-v+,--verbose}'[enable info messages]'
+	'-vv[enable debug messages]'
+	'(-h --help)'{-h,--help}'[show help message and exit]'
+	'(-V --version)'{-V,--version}'[show program version and exit]'
+	'*:files:_files'
+)
+
+_arguments -s -S $args
