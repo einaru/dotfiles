@@ -151,14 +151,18 @@ map <leader>+ :call ToggleBackground()<cr>
 nmap <c-pageup> :bprev<cr>
 nmap <c-pagedown> :bnext<cr>
 
-" Make Alt-key work in vim
-if has('vim')
-	execute 'set <a-1>=\e1'
-	execute 'set <a-2>=\e2'
-	execute 'set <a-3>=\e3'
-	execute 'set <a-j>=\ej'
-	execute 'set <a-k>=\ek'
-endif
+" Make alt-combinations work in terminals
+" See: http://stackoverflow.com/a/10216459
+try
+	let keys=['1', '2', '3', 'j', 'k']
+	for k in keys
+		exec "set <a-" . k . ">=\e" . k
+		exec "imap \e" . k . " <a-" . k . ">"
+	endfor
+	set ttimeout ttimeoutlen=50
+catch
+	" Nothing
+endtry
 
 nmap <a-1> :bprev<cr>
 nmap <a-2> :bnext<cr>
