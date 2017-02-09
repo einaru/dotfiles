@@ -24,5 +24,6 @@
     ~/.zshrc:
 
 - shell:
+    - touch ~/.histfile
     - git submodule update --init --recursive
     - vim +PluginInstall! +qall
