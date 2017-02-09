@@ -1,0 +1,4 @@
+#compdef devel
+
+_alternative \
+	"dirs:directories:($(cd "$HOME/Development" && ls -d */ | cut -f1 -d'/'))"
