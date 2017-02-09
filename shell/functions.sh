@@ -59,3 +59,11 @@ extract ()
 	esac
 }
 
+# Quickly navigate to development directories
+devel ()
+{
+	local path="$HOME/Development"
+	[ -d "$path/$1" ] && path="$path/$1"
+	cd $path
+}
+
