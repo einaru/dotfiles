@@ -1,6 +1,6 @@
 e ()
 {
-	if [[ -n $DISPLAY ]]; then
+	if hash gvim 2>/dev/null && [[ -n $DISPLAY ]] ; then
 		gvim "$@"
 	else
 		vim "$@"
