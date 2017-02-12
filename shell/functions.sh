@@ -33,30 +33,40 @@ ppath ()
 	echo $PATH | sed 's|:|\|g'
 }
 
-# Swiss-army knife for extracting various types of archive files.
-# TODO:2014-10-16:einar: add option for extracting to directory
+# Swiss-army knife for extracting various types of archive files
 extract ()
 {
-	if [[ ! -f $1 ]]; then echo "extract: '$1' is not a file" ; return 1 ; fi
+	if [ -z "$1" ]; then
+		echo 'usage: extract file [file ...]' >&2
+		return 1
+	fi
 
-	local lower="${1,,}"
-
-	case "$lower" in
-		(*.tar.gz|*.tgz)    tar -xvzf "$1" ;;
-		(*.tar.bz2|*.tbz)   tar -xvjf "$1" ;;
-		(*.tar.xz|*.txz)    tar -xvJf "$1" ;;
-		(*.tar.zma|*.tlz)   tar --lzma -xvf "$1" ;;
-		(*.tar)             tar -xvf "$1" ;;
-		(*.gz)              gunzip "$1" ;;
-		(*.bz2)             bunzip2 "$1" ;;
-		(*.xz)              unxz "$1" ;;
-		(*.lzma)            unlzma "$1" ;;
-		(*.Z)               uncompress "$1" ;;
-		(*.zip|*.war|*.jar) unzip "$1" ;;
-		(*.rar)             unrar x -ad "$1" ;;
-		(*.7z)              7za x "$1" ;;
-		(*) echo "extract: unable to extract '$1'" 1>&2 ; return 1 ;;
-	esac
+	for file in $@; do
+		if [ -f "$file" ]; then
+			case "$file" in
+				(*.tar.gz |*.tgz)   tar -xvzf "$file" ;;
+				(*.tar.bz2|*.tbz)   tar -xvjf "$file" ;;
+				(*.tar.xz |*.txz)   tar -xvJf "$file" ;;
+				(*.tar.zma|*.tlz)   tar -xvf --lzma "$file" ;;
+				(*.tar)             tar -xvf "$file" ;;
+				(*.gz)              gunzip "$file" ;;
+				(*.bz2)             bunzip2 "$file" ;;
+				(*.xz)              unxz "$file" ;;
+				(*.lzma)            unlzma "$file" ;;
+				(*.Z)               uncompress "$file" ;;
+				(*.zip|*.war|*.jar) unzip "$file" ;;
+				(*.rar)             unrar x -ad "$file" ;;
+				(*.7z)              7za x "$file" ;;
+				(*)
+					echo "extract: unable to extract '$file'" >&2
+					return 1
+					;;
+			esac
+		else
+			echo "extract: $file is not a file." >&2
+			return 1
+		fi
+	done
 }
 
 # Quickly navigate to development directories
