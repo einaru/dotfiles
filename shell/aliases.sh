@@ -26,3 +26,5 @@ alias gvimrs='gvim --remote-silent'
 
 # Mirror stdout to stderr, useful for seeing data going through a pipe
 alias peek='tee >(cat 1>&2)'
+
+hash xclip 2>/dev/null && alias xclip='xclip -selection clipboard'
