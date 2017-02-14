@@ -21,7 +21,8 @@ alias mv='mv -i'
 
 alias cdgr='cd "$(git root)"'
 
-has rsync && alias scp='rsync -avzP'
+alias scp='scp -rpv'
+has rsync && alias rsync='rsync -avzP'
 
 has vim  && alias vimrs='vim --remote-silent'
 has gvim && alias gvimrs='gvim --remote-silent'
