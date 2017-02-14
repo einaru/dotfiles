@@ -1,3 +1,5 @@
+has () { return $(hash "$1" 2>/dev/null) }
+
 alias ..=' cd ..'
 alias ...=' cd ../..'
 
@@ -19,12 +21,14 @@ alias mv='mv -i'
 
 alias cdgr='cd "$(git root)"'
 
-alias scp='rsync -avzP'
+has rsync && alias scp='rsync -avzP'
 
-alias vimrs='vim --remote-silent'
-alias gvimrs='gvim --remote-silent'
+has vim  && alias vimrs='vim --remote-silent'
+has gvim && alias gvimrs='gvim --remote-silent'
 
 # Mirror stdout to stderr, useful for seeing data going through a pipe
 alias peek='tee >(cat 1>&2)'
 
-hash xclip 2>/dev/null && alias xclip='xclip -selection clipboard'
+has xclip && alias xclip='xclip -selection clipboard'
+
+unset -f has
