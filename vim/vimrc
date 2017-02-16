@@ -37,6 +37,7 @@ set number                   " display line numbers
 set relativenumber           " display relative line numbers
 set exrc                     " enable per-project configuration files
 set secure                   " ... and disable unsafe commands
+set mouse=a                  " enable mouse in (a)ll modes
 
 " Swap and backup
 silent !mkdir ~/.vim/backup >/dev/null 2>&1
