@@ -1,4 +1,4 @@
-has () { return $(hash "$1" 2>/dev/null) }
+has () { return $(hash "$1" 2>/dev/null); }
 
 alias ..=' cd ..'
 alias ...=' cd ../..'
