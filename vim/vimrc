@@ -108,8 +108,6 @@ augroup FileTypeDetect
 	au BufNewFile,BufRead *mutt-*         setl filetype=mail
 	au BufNewFile,BufRead *.md,*.markdown setl filetype=markdown
 	au BufNewFile,BufRead *.ui,*.page     setl filetype=xml
-	au BufNewFile,BufRead package.json    setl ts=2 sw=2 sts=2 et
-	au BufNewFile,BufRead *.json          setl filetype=javascript
 	au BufNewFile,BufRead *.jade          setl ts=2 sw=2 sts=2 noet
 	au BufNewFile,BufRead .coafile        setl filetype=dosini
 augroup END
@@ -120,8 +118,8 @@ augroup FileTypeStyles
 	au FileType vala               setl cc=81,101 list
 	au Filetype python             setl ts=4 sw=4 sts=4 et nosi cc=74,81 list
 	au FileType xml                setl ts=2 sw=2 sts=2 et
-	au FileType html,xhtml,xsd,ant setl ts=2 sw=2 sts=2 noet
-	au Filetype javascript         setl ts=4 sw=4 sts=4 noet
+	au FileType html,xhtml,xsd,ant setl ts=2 sw=2 sts=2 et
+	au Filetype javascript,json    setl ts=2 sw=2 sts=2 et
 	au Filetype config             setl et
 augroup END
 
