@@ -1,4 +1,4 @@
-# ![Dotfiles](dotfiles.svg)
+# ![Dotfiles](dotfiles.png)
 
 This repo contains my personal configuration files.
 
