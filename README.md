@@ -1,5 +1,11 @@
-# Dotfiles
+# ![Dotfiles](dotfiles.svg)
 
-My dotfiles configuration repo.
+This repo contains my personal configuration files.
 
-[Dotbot](https://github.com/anishathalye/dotbot) is used for seamless installation.
+# Install
+
+[Dotbot](https://github.com/anishathalye/dotbot) is used for symlinking the files under `~`.
+
+	git clone --recursive https://github.com/einaru/dotfiles ~/.dotfiles
+	cd .dotfiles
+	./install
