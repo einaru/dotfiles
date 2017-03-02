@@ -39,7 +39,6 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "yes";
   }
 );
 
@@ -75,19 +74,17 @@ chatnets = {
     max_msgs = "3";
     max_whois = "30";
   };
-  OFTC = {
+  OFTC = { 
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
     max_whois = "30";
-    autosendcmd = "/msg NickServ IDENTIFY v0lT30n; wait 2000";
   };
   Freenode = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
     max_whois = "30";
-    autosendcmd = "/msg NickServ IDENTIFY v0lT30n; wait 2000";
   };
   GameSurge = {
     type = "IRC";
@@ -109,9 +106,7 @@ chatnets = {
 
 channels = (
   { name = "#ark"; chatnet = "oftc"; autojoin = "yes"; },
-  { name = "#gnome"; chatnet = "GIMPNet"; autojoin = "yes"; },
-  { name = "#gnome-hackers"; chatnet = "GIMPNet"; autojoin = "yes"; },
-  { name = "#newcomers"; chatnet = "GIMPNet"; autojoin = "yes"; }
+  { name = "#samfundet"; chatnet = "oftc"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -359,7 +354,8 @@ windows = {
       }
     );
   };
-  3 = {
+  3 = { name = "hilight"; sticky = "yes"; };
+  4 = {
     items = (
       { 
         type = "CHANNEL";
@@ -369,5 +365,18 @@ windows = {
       }
     );
   };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#samfundet";
+        tag = "OFTC";
+      }
+    );
+  };
 };
-mainwindows = { 3 = { first_line = "0"; lines = "40"; }; };
+mainwindows = {
+  1 = { first_line = "7"; lines = "54"; };
+  3 = { first_line = "0"; lines = "7"; };
+};
