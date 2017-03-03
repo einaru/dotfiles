@@ -32,13 +32,13 @@ eg = {
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Display tips for when to use i.e. and e.g.')
-    parser.add_argument('-f', '--full', action='store_true',
+    parser.add_argument('-v', '--verbose', action='store_true',
                         help='display more descriptive usage tips')
 
     args = parser.parse_args()
 
     for kw in [ie, eg]:
-        if args.full:
+        if args.verbose:
             print('{term} "{latin}", meaning "{english}"'.format(**kw))
             print('Replace with "{replace}".\n{usage}'.format(**kw))
             print()
