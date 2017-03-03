@@ -76,21 +76,22 @@ def main():
 
     total = mva_base + mva
 
-    if args.verbose:
-        print(receipt.format(
-            cost=cost,
-            goods='\n'.join(goods),
-            discount=discount,
-            shipping=shipping,
-            toll=toll,
-            mva_base=mva_base,
-            mva=mva,
-            total=total,
-            hr='-' * 35,
-            HR='=' * 35,
-        ), end='')
-    else:
-        print('{:.02f}'.format(total))
+    receipt_args = {
+        'cost': cost,
+        'goods': '\n'.join(goods),
+        'discount': discount,
+        'shipping': shipping,
+        'toll': toll,
+        'mva_base': mva_base,
+        'mva': mva,
+        'total': total,
+        'hr': '-' * 35,
+        'HR': '=' * 35,
+    }
+
+    template = receipt if args.verbose else '{total:.02f}'
+
+    print(template.format(**receipt_args))
 
     return 0
 
