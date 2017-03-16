@@ -31,4 +31,6 @@ alias peek='tee >(cat 1>&2)'
 
 has xclip && alias xclip='xclip -selection clipboard'
 
+has expac && alias list-my-pkg='expac "%n %p" | grep "Einar Uvsløkk" | column -t'
+
 unset -f has
