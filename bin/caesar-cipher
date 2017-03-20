@@ -40,9 +40,11 @@ def decrypt(n, ciphertext):
 
 def parse_command_line():
     p = argparse.ArgumentParser()
-    p.add_argument('text')
-    p.add_argument('-n', '--rotation', metavar='N', type=int, default=12)
-    p.add_argument('-d', '--decrypt', action='store_true')
+    p.add_argument('text', help='text to encrypt/decrypt')
+    p.add_argument('-n', '--rotation', metavar='N', type=int, default=12,
+                   help='alphabet rotation to use (default: %(default)d)')
+    p.add_argument('-d', '--decrypt', action='store_true',
+                   help='decrypt the text instead of encrypting it')
     args = p.parse_args()
     return args
 
