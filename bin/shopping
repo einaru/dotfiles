@@ -41,7 +41,7 @@ def parse_command_line():
                         help='additional shipping costs (%(default).02f)')
     parser.add_argument('-t', '--toll', action='store_true',
                         help='calculate toll costs')
-    parser.add_argument('-m', '--moms', action='store_true',
+    parser.add_argument('-m', '--mva', action='store_true',
                         help='calculate mva. costs')
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='show a more verbose receipt calculation')
@@ -67,7 +67,7 @@ def main():
         toll = mva_base * 0.107
         mva_base += toll
 
-    if args.moms:
+    if args.mva:
         mva = mva_base * 0.25
 
     goods = []
