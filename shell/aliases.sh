@@ -33,4 +33,8 @@ has xclip && alias xclip='xclip -selection clipboard'
 
 has expac && alias list-my-pkg='expac "%n %p" | grep "Einar Uvsløkk" | column -t'
 
+_SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS"
+unset _JAVA_OPTIONS
+alias java='java "$_SILENT_JAVA_OPTIONS"'
+
 unset -f has
