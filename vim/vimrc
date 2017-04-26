@@ -10,7 +10,7 @@ set nocompatible
 " Vundle:
 
 if filereadable(expand('~/.vim/plugins.vim'))
-	let g:enabled_plugins=['general', 'cosmetics', 'git', 'programming', 'writing']
+	let g:enabled_plugins=['general', 'cosmetics', 'git', 'programming', 'writing', 'local']
 	source ~/.vim/plugins.vim
 endif
 
@@ -114,7 +114,7 @@ augroup END
 
 augroup FileTypeStyles
 	au!
-	au FileType c,cpp              setl ts=2 sw=2 sts=2 noet noai
+	au FileType c,cpp              setl ts=4 sw=4 sts=4 noet noai
 	au FileType vala               setl cc=81,101 list
 	au Filetype python             setl ts=4 sw=4 sts=4 et nosi cc=74,81 list
 	au FileType xml                setl ts=2 sw=2 sts=2 et
@@ -193,3 +193,13 @@ map <leader>ss :setlocal spell!<cr>
 " Edit and source the vimrc file
 map <leader>ve :e ~/.vim/vimrc<cr>
 map <leader>vs :so ~/.vim/vimrc<cr>
+
+" Disable pasting with middle mouse button
+map  <MiddleMouse> <Nop>
+imap <MiddleMouse> <Nop>
+map  <2-MiddleMouse> <Nop>
+imap <2-MiddleMouse> <Nop>
+map  <3-MiddleMouse> <Nop>
+imap <3-MiddleMouse> <Nop>
+map  <4-MiddleMouse> <Nop>
+imap <4-MiddleMouse> <Nop>
