@@ -37,4 +37,9 @@ _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS"
 unset _JAVA_OPTIONS
 alias java='java "$_SILENT_JAVA_OPTIONS"'
 
+if has google-chrome-stable; then
+	alias google-chrome='google-chrome-stable'
+	alias messenger='google-chrome-stable --app=https://www.messenger.com'
+fi
+
 unset -f has
