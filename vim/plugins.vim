@@ -31,6 +31,8 @@ if count(g:enabled_plugins, 'writing')
 endif
 
 if count(g:enabled_plugins, 'programming')
+	" Build system
+	Plugin 'mesonbuild/meson', {'rtp': 'syntax-highlighting/vim'}
 	" Snippets
 	Plugin 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger="<tab>"
