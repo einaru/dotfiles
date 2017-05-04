@@ -106,7 +106,7 @@ set wildignore+=*.pyc,__pycache__/,*.egg,*.egg-info
 augroup FileTypeDetect
 	au!
 	au BufNewFile,BufRead *mutt-*         setl filetype=mail
-	au BufNewFile,BufRead *.md,*.markdown setl filetype=markdown
+	au BufNewFile,BufRead *.md,*.markdown setl filetype=markdown et
 	au BufNewFile,BufRead *.ui,*.page     setl filetype=xml
 	au BufNewFile,BufRead *.jade          setl ts=2 sw=2 sts=2 noet
 	au BufNewFile,BufRead .coafile        setl filetype=dosini
