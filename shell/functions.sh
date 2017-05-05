@@ -30,7 +30,7 @@ serve ()
 # Pretty print $PATH
 ppath ()
 {
-	echo $PATH | sed 's|:|\|g'
+	echo $PATH | sed 's|:|\n|g'
 }
 
 # Swiss-army knife for extracting various types of archive files
