@@ -6,17 +6,34 @@
     Copyright: (c) 2013 Einar Uvsløkk
     Free use of this software is granted under the terms of the
     GNU General Public License (GPL) version 3 or later.
+
 """
 import os
 import stat
 
-local_bin = os.path.expanduser('~/.local/bin')
-if os.path.exists(local_bin):
-    files = sorted(os.listdir(local_bin))
-    print('ls {} ({})'.format(local_bin, len(files)))
-    for bin_file in sorted(os.listdir(local_bin)):
-        f = os.path.join(local_bin, bin_file)
-        if os.path.isfile(f) and stat.S_IXUSR & os.stat(f)[stat.ST_MODE]:
-            print('\x1b[1;32m{}\x1b[0m'.format(bin_file))
+filetype = {
+    'exec': '  \x1b[1;32m{}\x1b[0m',
+    'file': '- \x1b[0;37m{}\x1b[0m',
+    'dir':  'd \x1b[1;36m{}\x1b[0m',
+}
+
+
+def lsbin(path):
+    files = sorted(os.listdir(path))
+    print('ls {} ({}):'.format(path, len(files)))
+    for name in files:
+        f = os.path.join(path, name)
+        if os.path.isfile(f):
+            if stat.S_IXUSR & os.stat(f)[stat.ST_MODE]:
+                print(filetype['exec'].format(name))
+            else:
+                print(filetype['file'].format(name))
         else:
-            print('\x1b[1;37;41m{}\x1b[0m'.format(bin_file))
+            print(filetype['dir'].format(name))
+
+
+paths = ('~/.local/bin', '~/.dotfiles/bin')
+for p in paths:
+    path = os.path.expanduser(p)
+    if os.path.exists(path):
+        lsbin(path)
