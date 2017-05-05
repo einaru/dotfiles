@@ -77,3 +77,7 @@ devel ()
 	cd $path
 }
 
+# Put local functions in this file
+if [ -f ~/.config/shell/functions.sh ]; then
+	source ~/.config/shell/functions.sh
+fi

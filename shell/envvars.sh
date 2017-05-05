@@ -23,3 +23,8 @@ if [ -f /usr/bin/virtualenvwrapper.sh ]; then
 	[ ! -d $WORKON_HOME ] && mkdir -p $WORKON_HOME
 	source /usr/bin/virtualenvwrapper.sh
 fi
+
+# Put local environment variables in this file
+if [ -f ~/.config/shell/envvars.sh ]; then
+	source ~/.config/shell/envvars.sh
+fi

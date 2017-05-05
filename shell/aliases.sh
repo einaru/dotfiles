@@ -44,3 +44,8 @@ if has google-chrome-stable; then
 fi
 
 unset -f has
+
+# Put local aliases in this file
+if [ -f ~/.config/shell/aliases.sh ]; then
+	source ~/.config/shell/aliases.sh
+fi
