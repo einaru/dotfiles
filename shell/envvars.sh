@@ -10,6 +10,10 @@ if [ -d "$HOME/.go" ]; then
 	fi
 fi
 
+if [ -d "$HOME/.dotfiles/bin" ]; then
+	PATH="$HOME/.dotfiles/bin:$PATH"
+fi
+
 if [ -d "$HOME/.local/bin" ]; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
