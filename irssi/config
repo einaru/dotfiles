@@ -17,7 +17,7 @@ servers = (
     address = "irc.oftc.net";
     chatnet = "OFTC";
     port = "6667";
-    autoconnect = "yes";
+    autoconnect = "no";
   },
   { 
     address = "chat.freenode.net";
@@ -106,7 +106,8 @@ chatnets = {
 
 channels = (
   { name = "#ark"; chatnet = "oftc"; autojoin = "yes"; },
-  { name = "#samfundet"; chatnet = "oftc"; autojoin = "yes"; }
+  { name = "#samfundet"; chatnet = "oftc"; autojoin = "yes"; },
+  { name = "#libpredict"; chatnet = "oftc"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -157,6 +158,7 @@ aliases = {
   ATAG = "WINDOW SERVER";
   UNSET = "set -clear";
   RESET = "set -default";
+  usercount = "/sbar awl_0 add -before awl_0 -alignment left usercount";
 };
 
 statusbar = {
@@ -289,6 +291,7 @@ statusbar = {
 
       items = {
         #           barstart = "--------------";
+        awaybar = { alignment = "right"; };
         erotin = {
           items = { barstart = "asdasd--------------"; };
           priority = "100";
@@ -307,6 +310,7 @@ statusbar = {
     awl_0 = {
       items = {
         barstart = { priority = "100"; };
+        usercount = { };
         awl_0 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
@@ -339,44 +343,17 @@ settings = {
     awl_sbar_maxlength = "yes";
     awl_separator = "%N %N";
     awl_sort = "refnum";
+    trackbar_string = "_ ";
+    trackbar_style = "%r";
   };
 };
 hilights = ( { text = "einaru"; nick = "no"; word = "yes"; } );
+logs = { };
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
-  2 = {
-    items = (
-      {
-        type = "QUERY";
-        chat_type = "IRC";
-        name = "NickServ";
-        tag = "OFTC";
-      }
-    );
-  };
-  3 = { name = "hilight"; sticky = "yes"; };
-  4 = {
-    items = (
-      { 
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#ark";
-        tag = "OFTC";
-      }
-    );
-  };
-  5 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#samfundet";
-        tag = "OFTC";
-      }
-    );
-  };
+  2 = { name = "hilight"; sticky = "yes"; };
 };
 mainwindows = {
-  1 = { first_line = "7"; lines = "54"; };
-  3 = { first_line = "0"; lines = "7"; };
+  1 = { first_line = "11"; lines = "49"; };
+  2 = { first_line = "0"; lines = "11"; };
 };
