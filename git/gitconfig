@@ -6,6 +6,9 @@
 	editor = vim
 	excludesfile = ~/.gitignore-global
 
+[include]
+	path = ~/.gitconfig-local
+
 [merge]
 	tool = vimdiff
 
