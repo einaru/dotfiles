@@ -36,3 +36,8 @@ prompt pure
 source ~/.shell/envvars.sh
 source ~/.shell/aliases.sh
 source ~/.shell/functions.sh
+
+# Add local zsh configurations in this file
+if [ -f ~/.zshrc-local ]; then
+	source ~/.zshrc-local
+fi
