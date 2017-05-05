@@ -1,5 +1,9 @@
-" ==== Plugins ============================================================== "
-
+"
+" Vim Plugin configuration
+"
+" Author: Einar Uvsløkk <einar.uvslokk@gmail.com>
+" Source: https://github.com/einaru/dotfiles
+"
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -55,8 +59,10 @@ if count(g:enabled_plugins, 'programming')
 	let g:jsx_ext_required = 0  " Allow JSX in normal JS files
 endif
 
-if count(g:enabled_plugins, 'local')
-	Plugin 'file:///mnt/data/src/einaru/vim-gnome-dev/'
+" Put local plugin configurations in this file
+let $localfile=expand('~/.config/vim/plugins.vim')
+if filereadable($localfile)
+	source $localfile
 endif
 
 call vundle#end()

@@ -9,9 +9,10 @@ set nocompatible
 
 " Vundle:
 
-if filereadable(expand('~/.vim/plugins.vim'))
-	let g:enabled_plugins=['general', 'cosmetics', 'git', 'programming', 'writing', 'local']
-	source ~/.vim/plugins.vim
+let $pluginsfile=expand('~/.vim/plugins.vim')
+if filereadable($pluginsfile)
+	let g:enabled_plugins=['general', 'cosmetics', 'git', 'programming', 'writing']
+	source $pluginsfile
 endif
 
 
@@ -203,3 +204,9 @@ map  <3-MiddleMouse> <Nop>
 imap <3-MiddleMouse> <Nop>
 map  <4-MiddleMouse> <Nop>
 imap <4-MiddleMouse> <Nop>
+
+" Put local configurations in this file
+let $localfile=expand('~/.config/vim/local.vim')
+if filereadable($localfile)
+	source $localfile
+endif
