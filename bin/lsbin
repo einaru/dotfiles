@@ -11,25 +11,27 @@
 import os
 import stat
 
-filetype = {
-    'exec': '  \x1b[1;32m{}\x1b[0m',
-    'file': '- \x1b[0;37m{}\x1b[0m',
-    'dir':  'd \x1b[1;36m{}\x1b[0m',
+formats = {
+    'title': '\x1b[4m{}\x1b[0m',
+    'exec':  '  \x1b[1;32m{}\x1b[0m',
+    'file':  '- \x1b[0;37m{}\x1b[0m',
+    'dir':   'd \x1b[1;36m{}\x1b[0m',
 }
 
 
 def lsbin(path):
     files = sorted(os.listdir(path))
-    print('ls {} ({}):'.format(path, len(files)))
+    title = '{} ({}):'.format(path, len(files))
+    print(formats['title'].format(title))
     for name in files:
         f = os.path.join(path, name)
         if os.path.isfile(f):
             if stat.S_IXUSR & os.stat(f)[stat.ST_MODE]:
-                print(filetype['exec'].format(name))
+                print(formats['exec'].format(name))
             else:
-                print(filetype['file'].format(name))
+                print(formats['file'].format(name))
         else:
-            print(filetype['dir'].format(name))
+            print(formats['dir'].format(name))
 
 
 paths = ('~/.local/bin', '~/.dotfiles/bin')
@@ -37,3 +39,4 @@ for p in paths:
     path = os.path.expanduser(p)
     if os.path.exists(path):
         lsbin(path)
+    print()
