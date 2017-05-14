@@ -72,7 +72,7 @@ extract ()
 # Quickly navigate to development directories
 devel ()
 {
-	local path="$HOME/Development"
+	local path="$HOME/Code"
 	[ -d "$path/$1" ] && path="$path/$1"
 	cd $path
 }
