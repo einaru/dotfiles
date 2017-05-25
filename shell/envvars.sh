@@ -21,7 +21,7 @@ fi
 export PATH=$PATH
 export EDITOR='vim'
 export VISUAL=$EDITOR
-export BROWSER='xdg-open'
+export BROWSER='gio open'
 
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
 	export WORKON_HOME="$HOME/.local/share/virtualenvs"
