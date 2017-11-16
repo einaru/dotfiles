@@ -31,6 +31,7 @@ autoload -Uz promptinit && promptinit
 zstyle ':completion:*' rehash true
 
 PURE_CMD_MAX_EXEC_TIME=10
+PURE_PROMPT_SYMBOL='>'
 prompt pure
 
 source ~/.shell/envvars.sh
