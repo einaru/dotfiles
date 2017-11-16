@@ -205,6 +205,10 @@ imap <3-MiddleMouse> <Nop>
 map  <4-MiddleMouse> <Nop>
 imap <4-MiddleMouse> <Nop>
 
+" Insert timestamps
+nmap <f3> "=strftime("%FT%T%z")<cr>p
+imap <f3> <cr>=strftime("%FT%T%z")<cr>
+
 " Put local configurations in this file
 let $localfile=expand('~/.config/vim/local.vim')
 if filereadable($localfile)
