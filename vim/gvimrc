@@ -12,5 +12,5 @@ set guioptions-=R        " ... also in vsplit
 set guioptions-=l        " disable scrollbars (left)
 set guioptions-=L        " ... also in vsplit
 
-set guifont=Monospace\ 10
+set guifont=Inconsolata\ 11
 set background=light
