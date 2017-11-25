@@ -1,0 +1,93 @@
+snippet proto "HTML prototype structure" b
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>${1:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+	<style type="text/css">
+		body {
+			font-family: 'Roboto Slab', sans-serif;
+			font-weight: normal;
+			font-size: 18px;
+			margin: 0;
+		}
+		h1,h2,h3,h4,h5,h6 {
+			font-family: 'Roboto', sans;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	${0:body}
+</body>
+</html>
+endsnippet
+
+snippet html "HTML basic structure" b
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>${1:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
+</head>
+<body>
+	${0:body}
+</body>
+</html>
+endsnippet
+
+snippet roboto "Roboto fonts (sans & sans-serif)" w
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+endsnippet
+
+snippet robotosans "Roboto sans font" w
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+endsnippet
+
+snippet robotoslab "Roboto Slab sans-serif font" w
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+endsnippet
+
+snippet table "table wrapped in a div"
+<div class="table-wrapper">
+	<table>
+		<thead>
+			<tr>
+				<th>Heading 1</th>
+				<th>Heading 2</th>
+				<th>Heading 3</th>
+				<th>Heading 4</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Row 1, col 1</td>
+				<td>Row 1, col 2</td>
+				<td>Row 1, col 3</td>
+				<td>Row 1, col 4</td>
+			</tr>
+			<tr>
+				<td>Row 2, col 1</td>
+				<td>Row 2, col 2</td>
+				<td>Row 2, col 3</td>
+				<td>Row 2, col 4</td>
+			</tr>
+			<tr>
+				<td>Row 3, col 1</td>
+				<td>Row 3, col 2</td>
+				<td>Row 3, col 3</td>
+				<td>Row 3, col 4</td>
+			</tr>
+			<tr>
+				<td>Row 4, col 1</td>
+				<td>Row 4, col 2</td>
+				<td>Row 4, col 3</td>
+				<td>Row 4, col 4</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+endsnippet

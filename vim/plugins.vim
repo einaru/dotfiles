@@ -43,6 +43,7 @@ if count(g:enabled_plugins, 'programming')
 	let g:UltiSnipsJumpForwardTrigger="<c-b>"
 	let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 	let g:UltiSnipsEditSplit="horizontal"
+	let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
 	Plugin 'honza/vim-snippets'
 	let g:ultisnips_python_quoting_style="single"
 	let g:ultisnips_python_triple_quoting_style="double"
@@ -53,10 +54,16 @@ if count(g:enabled_plugins, 'programming')
 	Plugin 'nvie/vim-flake8'
 
 	" Web
+	Plugin 'Glench/Vim-Jinja2-Syntax'
 	Plugin 'othree/html5.vim'
 	Plugin 'pangloss/vim-javascript'
 	Plugin 'mxw/vim-jsx'
 	let g:jsx_ext_required = 0  " Allow JSX in normal JS files
+	Plugin 'hail2u/vim-css3-syntax'
+	Plugin 'cakebaker/scss-syntax.vim'
+
+	" Qt
+	Plugin 'peterhoeg/vim-qml'
 endif
 
 " Put local plugin configurations in this file
