@@ -8,6 +8,7 @@
 
 - link:
     ~/.bashrc:
+    ~/.bash: bash
     ~/.config/mpv: mpv
     ~/.config/nvim/init.vim: vim/vimrc
     ~/.gitconfig: git/gitconfig
@@ -24,4 +25,4 @@
 - shell:
     - touch ~/.histfile
     - git submodule update --init --recursive
-    - vim +PluginInstall! +qall
+#    - vim +PluginInstall! +qall
