@@ -41,12 +41,14 @@ set secure                   " ... and disable unsafe commands
 set mouse=a                  " enable mouse in (a)ll modes
 
 " Swap and backup
-silent !mkdir ~/.vim/backup >/dev/null 2>&1
-silent !mkdir ~/.vim/swap >/dev/null 2>&1
+let $cachedir=expand('~/.cache/vim')
+silent !mkdir -p $cachedir/backup >/dev/null 2>&1
+silent !mkdir -p $cachedir/swap >/dev/null 2>&1
 
-set nobackup                 " (en|dis)able backup
-set backupdir=~/.vim/backup  " location for backup files
-set directory=~/.vim/swap    " location for swap files
+set nobackup                    " (en|dis)able backup
+set backupdir=$cachedir/backup  " location for backup files
+set directory=$cachedir/swap    " location for swap files
+set viminfo+=n$cachedir/viminfo " location for viminfo file
 
 " Scrolling
 set scrolloff=3              " start scrolling n lines away from margins
