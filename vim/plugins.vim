@@ -1,69 +1,69 @@
 "
-" Vim Plugin configuration
+" Vim Plug configuration
 "
 " Author: Einar Uvsløkk <einar.uvslokk@gmail.com>
 " Source: https://github.com/einaru/dotfiles
-"
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" Let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/bundle')
 
 if count(g:enabled_plugins, 'general')
-	Plugin 'scrooloose/nerdtree'
+	Plug 'scrooloose/nerdtree'
 	let NERDTreeRespectWildIgnore=1
-	Plugin 'octref/RootIgnore'
+	Plug 'octref/RootIgnore'
 	let g:RootIgnoreUseHome = 1
 	let g:RootIgnoreAgignore = 1
-	Plugin 'editorconfig/editorconfig-vim'
+	Plug 'editorconfig/editorconfig-vim'
 endif
 
 if count(g:enabled_plugins, 'cosmetics')
-	Plugin 'NLKNguyen/papercolor-theme'
+	Plug 'NLKNguyen/papercolor-theme'
 endif
 
 if count(g:enabled_plugins, 'git')
-	Plugin 'airblade/vim-gitgutter'
+	Plug 'airblade/vim-gitgutter'
 endif
 
 if count(g:enabled_plugins, 'writing')
-	Plugin 'lervag/vimtex'
-	Plugin 'tpope/vim-markdown'
+	Plug 'lervag/vimtex'
+	Plug 'tpope/vim-markdown'
 endif
 
 if count(g:enabled_plugins, 'programming')
 	" Build system
-	Plugin 'mesonbuild/meson', {'rtp': 'syntax-highlighting/vim'}
+	Plug 'mesonbuild/meson', {'rtp': 'syntax-highlighting/vim'}
 	" Snippets
-	Plugin 'SirVer/ultisnips'
+	Plug 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger="<tab>"
 	let g:UltiSnipsJumpForwardTrigger="<c-b>"
 	let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 	let g:UltiSnipsEditSplit="horizontal"
 	let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
-	Plugin 'honza/vim-snippets'
+	Plug 'honza/vim-snippets'
 	let g:ultisnips_python_quoting_style="single"
 	let g:ultisnips_python_triple_quoting_style="double"
 	let g:ultisnips_python_style="google"
 
 	" Python
-	Plugin 'hynek/vim-python-pep8-indent'
-	Plugin 'nvie/vim-flake8'
+	Plug 'hynek/vim-python-pep8-indent'
+	Plug 'nvie/vim-flake8'
 
 	" Web
-	Plugin 'Glench/Vim-Jinja2-Syntax'
-	Plugin 'othree/html5.vim'
-	Plugin 'pangloss/vim-javascript'
-	Plugin 'mxw/vim-jsx'
+	Plug 'Glench/Vim-Jinja2-Syntax'
+	Plug 'othree/html5.vim'
+	Plug 'pangloss/vim-javascript'
+	Plug 'mxw/vim-jsx'
 	let g:jsx_ext_required = 0  " Allow JSX in normal JS files
-	Plugin 'hail2u/vim-css3-syntax'
-	Plugin 'cakebaker/scss-syntax.vim'
+	Plug 'hail2u/vim-css3-syntax'
+	Plug 'cakebaker/scss-syntax.vim'
 
 	" Qt
-	Plugin 'peterhoeg/vim-qml'
+	Plug 'peterhoeg/vim-qml'
 endif
 
 " Put local plugin configurations in this file
@@ -72,6 +72,4 @@ if filereadable($localfile)
 	source $localfile
 endif
 
-call vundle#end()
-
-filetype plugin indent on
+call plug#end()

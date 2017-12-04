@@ -4,6 +4,3 @@
 [submodule "zsh/lib/pure"]
 	path = zsh/lib/pure
 	url = https://github.com/sindresorhus/pure
-[submodule "vim/bundle/Vundle.vim"]
-	path = vim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim
