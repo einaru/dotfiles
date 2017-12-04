@@ -86,7 +86,7 @@ au InsertLeave * match TrailingWhitespace /\s\+$/
 au BufWinEnter * match TrailingWhitespace /\s\+$/
 au BufWinLeave * call clearmatches()  " avoids memory leak 
 
-" Highlight currnet line, but only in active window
+" Highlight current line, but only in active window
 augroup CursorLineOnlyInActiveWindow
 	au!
 	au VimEnter,WinEnter,BufWinEnter * setl cursorline
