@@ -31,7 +31,8 @@ Plug 'airblade/vim-gitgutter'
 " Writing:
 
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+let g:vim_markdown_folding_disabled = 1
 
 " Programming:
 
