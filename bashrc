@@ -23,4 +23,4 @@ if [ -f ~/.bashrc_local ]; then
 	source ~/.bashrc_local
 fi
 
-[-f ~/.bash/prompt.sh ] && source ~/.bash/prompt.sh
+[ -f ~/.bash/prompt.sh ] && source ~/.bash/prompt.sh
