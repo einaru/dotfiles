@@ -43,6 +43,13 @@ if has google-chrome-stable; then
 	alias messenger='google-chrome-stable --app=https://www.messenger.com'
 fi
 
+if has todo.sh; then
+	TODOTXT_CFG_FILE="$HOME/.config/todo.cfg"
+	alias todo.sh="todo.sh -d $TODOTXT_CFG_FILE"
+	alias t="todo.sh -d $TODOTXT_CFG_FILE"
+	unset TODOTXT_CFG_FILE
+fi
+
 unset -f has
 
 # Put local aliases in this file

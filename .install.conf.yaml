@@ -11,6 +11,7 @@
     ~/.bash: bash
     ~/.config/mpv: mpv
     ~/.config/nvim/init.vim: vim/vimrc
+    ~/.config/todo.cfg: todo.cfg
     ~/.gitconfig: git/gitconfig
     ~/.gitignore-global: git/gitignore-global
     ~/.irssi:
