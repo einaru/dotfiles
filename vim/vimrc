@@ -116,13 +116,13 @@ augroup END
 
 augroup FileTypeStyles
 	au!
-	au FileType c,cpp              setl ts=4 sw=4 sts=4 noet noai
-	au FileType vala               setl cc=81,101 list
-	au Filetype python             setl ts=4 sw=4 sts=4 et nosi cc=74,81 list
-	au FileType xml                setl ts=2 sw=2 sts=2 et
-	au FileType html,xhtml,xsd,ant setl ts=2 sw=2 sts=2 et
-	au Filetype javascript,json    setl ts=2 sw=2 sts=2 et
-	au Filetype config             setl et
+	au FileType c,cpp                    setl ts=4 sw=4 sts=4 noet noai
+	au FileType vala                     setl cc=81,101 list
+	au Filetype python                   setl ts=4 sw=4 sts=4 et nosi cc=74,81 list
+	au FileType xml                      setl ts=2 sw=2 sts=2 et
+	au FileType html,jinja,xhtml,xsd,ant setl ts=2 sw=2 sts=2 et
+	au Filetype javascript,json          setl ts=2 sw=2 sts=2 et
+	au Filetype config                   setl et
 augroup END
 
 
