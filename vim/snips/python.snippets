@@ -1,0 +1,14 @@
+snippet parser "Common argparse initialization" b
+version = '0.1'
+parser = argparse.ArgumentParser()
+parser.add_argument('-V', '--version', action='version',
+					version='%(prog)s ' + version,
+					help='show the program version and exit')
+parser.add_argument('-v', '--verbose', dest='verbosity',
+					action='count', default=0,
+					help='increase logging verbosity, use -v to enable '
+					'info message, and -vv to enable debug messages')
+args = parser.parse_args()
+level = max(3 - args.verbosity, 0) * 10
+logging.basicConfig(stream=sys.stderr, level=level, format='%(message)s')
+endsnippet
