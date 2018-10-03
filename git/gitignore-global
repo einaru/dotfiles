@@ -43,6 +43,7 @@ venv/
 
 .sass-cache
 tmp/
+.tmp/
 build/
 .proto
 proto/
