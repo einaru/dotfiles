@@ -59,11 +59,18 @@ Plug 'nvie/vim-flake8', { 'for': 'python' }
 " Web
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'othree/html5.vim'
-Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color', { 'for': ['css', 'scss.css'] }
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'hail2u/vim-css3-syntax'
+aug VimCSS3Syntax
+	au!
+	au BufRead,BufNewFile *.scss set ft=scss.css
+	au FileType css,scss,scss.css setl iskeyword+=-
+aug END
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0  " Allow JSX in normal JS files
+Plug 'digitaltoad/vim-pug'
 
 " Qt
 Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
