@@ -123,8 +123,9 @@ augroup FileTypeStyles
 	au Filetype python                   setl ts=4 sw=4 sts=4 et nosi cc=73,80 list
 	au FileType xml                      setl ts=2 sw=2 sts=2 et
 	au FileType html,jinja,xhtml,xsd,ant setl ts=2 sw=2 sts=2 et
-	au Filetype javascript,json          setl ts=2 sw=2 sts=2 et
-	au Filetype config                   setl et
+	au FileType javascript               setl ts=4 sw=4 sts=4 et cc=73,80
+	au FileType json                     setl ts=4 sw=4 sts=4 et
+	au FileType config                   setl et
 augroup END
 
 
