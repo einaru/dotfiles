@@ -24,6 +24,7 @@ bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
 bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
 fpath=($HOME/.zsh/fpath $fpath)
+[ -d $HOME/.config/zsh/fpath ] && fpath=($HOME/.config/zsh/fpath $fpath)
 
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
@@ -39,6 +40,6 @@ source ~/.shell/aliases.sh
 source ~/.shell/functions.sh
 
 # Add local zsh configurations in this file
-if [ -f ~/.zshrc-local ]; then
-	source ~/.zshrc-local
+if [ -f ~/.config/zsh/local.zsh ]; then
+	source ~/.config/zsh/local.zsh
 fi
