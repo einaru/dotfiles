@@ -20,9 +20,9 @@ case $(id -u) in
 esac
 
 prompt_symbol='>'
-prompt_clean_symbol='☀ '
-prompt_dirty_symbol='☂ '
-prompt_venv_symbol='☁ '
+prompt_clean_symbol=''
+prompt_dirty_symbol='*'
+prompt_venv_symbol=''
 
 prompt_command ()
 {
@@ -34,7 +34,7 @@ prompt_command ()
 	if [[ "true" = "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then
 		# Branch name
 		local branch="$(git symbolic-ref HEAD 2>/dev/null)"
-		branch="${branc##refs/heads/}"
+		branch="${branch##refs/heads/}"
 
 		# Working tree status (red when dirty)
 		local dirty=
@@ -45,9 +45,9 @@ prompt_command ()
 
 		# Format git info
 		if [ -n "$dirty" ]; then
-			git_prompt=" ${RED}${prompt_dirty_symbol}${branch}${NOCOLOR}"
+			git_prompt=" ${GRAY}${branch}${RED}${prompt_dirty_symbol}${NOCOLOR}"
 		else
-			git_prompt=" ${GREEN}${prompt_clean_symbol}${branch}${NOCOLOR}"
+			git_prompt=" ${GRAY}${branch}${GREEN}${prompt_clean_symbol}${NOCOLOR}"
 		fi
 	fi
 
