@@ -5,7 +5,7 @@ HISTFILE=$HOME/.bash_history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 HISTCONTROL=erasedups:ignorespace
-HISTIGNORE="l:ll:ls *"
+#HISTIGNORE="l:ll:ls *"
 
 shopt -s histappend
 
