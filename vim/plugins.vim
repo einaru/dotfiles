@@ -76,6 +76,9 @@ Plug 'digitaltoad/vim-pug'
 " Qt
 Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
 
+" Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+
 " Put local plugin configurations in this file
 let $localfile=expand('~/.config/vim/plugins.vim')
 if filereadable($localfile)
