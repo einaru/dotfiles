@@ -16,6 +16,7 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToogle' }
 let NERDTreeRespectWildIgnore=1
+noremap <f4> :NERDTreeToogle<cr>
 
 Plug 'octref/RootIgnore'
 let g:RootIgnoreUseHome = 1
