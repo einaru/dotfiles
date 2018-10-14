@@ -114,6 +114,7 @@ augroup FileTypeDetect
 	au BufNewFile,BufRead *.ui,*.page     setl filetype=xml
 	au BufNewFile,BufRead *.jade          setl ts=2 sw=2 sts=2 noet
 	au BufNewFile,BufRead .coafile        setl filetype=dosini
+	au BufNewFile,BufRead *.qrc           setl ft=xml
 augroup END
 
 augroup FileTypeStyles
