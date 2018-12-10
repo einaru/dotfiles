@@ -28,6 +28,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
+set updatetime=200
 
 " Writing:
 
