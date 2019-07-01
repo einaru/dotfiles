@@ -49,6 +49,8 @@ if !has('nvim')
 	set backupdir=$cachedir/backup  " location for backup files
 	set directory=$cachedir/swap    " location for swap files
 	set viminfo+=n$cachedir/viminfo " location for viminfo file
+
+	let g:netrw_home=$cachedir
 endif
 
 " Scrolling
