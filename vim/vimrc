@@ -151,6 +151,14 @@ fun! ToggleBackground()
 endfun
 map <leader>+ :call ToggleBackground()<cr>
 
+fun! ToggleColorColumn()
+	if (&cc == '')
+		set cc=80
+	else
+		set cc=
+	endif
+endfun
+nmap <leader>cc :call ToggleColorColumn()<cr>
 
 " Key Sequences:
 
