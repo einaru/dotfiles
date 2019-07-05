@@ -45,7 +45,7 @@ if !has('nvim')
 	silent !mkdir -p $cachedir/backup >/dev/null 2>&1
 	silent !mkdir -p $cachedir/swap >/dev/null 2>&1
 
-	set nobackup                    " (en|dis)able backup
+	set nobackup                    " {en,dis}able backup
 	set backupdir=$cachedir/backup  " location for backup files
 	set directory=$cachedir/swap    " location for swap files
 	set viminfo+=n$cachedir/viminfo " location for viminfo file
