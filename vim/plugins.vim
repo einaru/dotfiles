@@ -61,7 +61,6 @@ Plug 'nvie/vim-flake8', { 'for': 'python' }
 " Web
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'othree/html5.vim'
-Plug 'ap/vim-css-color', { 'for': ['css', 'scss.css'] }
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 aug VimCSS3Syntax
