@@ -59,19 +59,19 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' }
 
 " Web
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'othree/html5.vim'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'hail2u/vim-css3-syntax'
+Plug 'Glench/Vim-Jinja2-Syntax'   " Jinja2 syntax
+Plug 'othree/html5.vim'           " HTML5 omnicomplete and syntax
+Plug 'cakebaker/scss-syntax.vim'  " SCSS syntax
+Plug 'hail2u/vim-css3-syntax'     " CSS3 syntax
 aug VimCSS3Syntax
 	au!
 	au BufRead,BufNewFile *.scss set ft=scss.css
 	au FileType css,scss,scss.css setl iskeyword+=-
 aug END
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-let g:jsx_ext_required = 0  " Allow JSX in normal JS files
-Plug 'digitaltoad/vim-pug'
+Plug 'pangloss/vim-javascript'    " Javascript indent and syntax
+Plug 'mxw/vim-jsx'                " React JSX syntax and indent
+let g:jsx_ext_required = 0        " allow JSX in normal JS files
+Plug 'digitaltoad/vim-pug'        " Pug template engine syntax and indent
 
 " Qt
 Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
