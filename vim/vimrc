@@ -96,6 +96,11 @@ augroup CursorLineOnlyInActiveWindow
 	au WinLeave * setl nocursorline
 augroup END
 
+if &diff
+	" shortcuts for navigating next and previous diffs
+	map ] ]c
+	map [ [c
+endif
 
 " Ignore:
 
