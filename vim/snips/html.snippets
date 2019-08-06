@@ -5,16 +5,15 @@ snippet proto "HTML prototype structure" b
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>${1:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<style type="text/css">
 		body {
-			font-family: 'Roboto Slab', sans-serif;
+			font-family: 'Roboto', sans-serif;
 			font-weight: normal;
 			font-size: 18px;
 			margin: 0;
 		}
 		h1,h2,h3,h4,h5,h6 {
-			font-family: 'Roboto', sans;
 			font-weight: bold;
 		}
 	</style>
@@ -39,16 +38,24 @@ snippet html "HTML basic structure" b
 </html>
 endsnippet
 
-snippet roboto "Roboto fonts (sans & sans-serif)" w
-<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+snippet roboto "Roboto font (sans-serif)" w
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 endsnippet
 
-snippet robotosans "Roboto sans font" w
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+snippet robotoslab "Roboto Slab font (serif)" w
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 endsnippet
 
-snippet robotoslab "Roboto Slab sans-serif font" w
-<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+snippet robotomono "Roboto Mono font (monospace)" w
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+endsnippet
+
+snippet roboto2 "Roboto fonts (sans-serif + serif)" w
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab&display=swap" rel="stylesheet">
+endsnippet
+
+snippet robotoall "Roboto fonts (sans-serif + serif + monospace)" w
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Roboto+Mono&display=swap" rel="stylesheet">
 endsnippet
 
 snippet table "table wrapped in a div"

@@ -8,7 +8,7 @@ parser.add_argument('-v', '--verbose', dest='verbosity',
 					action='count', default=0,
 					help='increase logging verbosity, use -v to enable '
 					'info message, and -vv to enable debug messages')
-args = parser.parse_args()
-level = max(3 - args.verbosity, 0) * 10
+parsed = parser.parse_args()
+level = max(3 - parsed.verbosity, 0) * 10
 logging.basicConfig(stream=sys.stderr, level=level, format='%(message)s')
 endsnippet
