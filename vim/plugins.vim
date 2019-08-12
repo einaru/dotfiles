@@ -32,6 +32,11 @@ set updatetime=200
 
 " Writing:
 
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+nmap <leader>g :Goyo<cr>
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
