@@ -208,6 +208,10 @@ vnoremap > >gv
 " Search visually selected text with //
 vnoremap // y/<c-r>"<cr>
 
+" Sort visual block
+xnoremap <leader>so :sort<cr>
+xnoremap <leader>si :sort i<cr>
+
 " Run make
 map <leader>m :!make<cr>
 map <leader>sm :silent make<cr>
