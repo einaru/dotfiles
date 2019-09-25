@@ -188,6 +188,7 @@ nmap <a-1> :bprev<cr>
 nmap <a-2> :bnext<cr>
 nmap <a-3> :buffers<cr>
 nmap <leader><del> :bdelete<cr>
+nmap <leader>df :bdelete!<cr>
 
 " Move line of text up or down
 nmap <a-j> mz:m+<cr>`z
