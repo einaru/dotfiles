@@ -3,7 +3,7 @@ has () { return $(hash "$1" 2>/dev/null); }
 alias ..=' cd ..'
 alias ...=' cd ../..'
 
-alias ls='ls --color=auto --group-directories-first'
+alias ls='env LC_COLLATE=POSIX ls --color=auto --group-directories-first'
 alias l='ls'
 alias la='ls -A'
 alias ll='ls -lh'
