@@ -1,0 +1,162 @@
+#!/usr/bin/env python3
+import argparse
+import subprocess
+import sys
+
+
+def do_currency(args):
+    expression = f'{args.amount} {args.transaction} in {args.payment}'
+    command = f'gnome-calculator -s "{expression}"'
+    subprocess.call(command, shell=True, stderr=subprocess.DEVNULL)
+
+
+def do_retail(args):
+    retail = args.price / ((100 - args.discount) / 100)
+    print(f'{retail:.2f}')
+
+
+def do_discount(args):
+    price = min(args.price, args.retail)
+    retail = max(args.price, args.retail)
+    discount = 100 - (price / retail * 100)
+    print(f'{discount:.2f}%')
+
+
+shopping_receipt = """
+Varer:              {cost:>15.02f}
+-----------------------------------
+{goods}
+-----------------------------------
+Rabatt:             {discount:>15.02f}
+Frakt:              {shipping:>15.02f}
+Toll:               {toll:>15.02f}
+-----------------------------------
+Grunnlag for mva.:  {mva_base:>15.02f}
+Mva.:               {mva:>15.02f}
+-----------------------------------
+Total:              {total:>15.02f}
+===================================
+"""
+
+
+def do_shopping(args):
+    discount, toll, mva = 0, 0, 0
+    cost = sum(args.cost)
+    shipping = args.shipping
+
+    if args.discount > 0 and args.discount < 100:
+        discount = (cost * (args.discount / 100)) * -1
+
+    mva_base = cost + discount + shipping
+
+    if args.toll:
+        toll = mva_base * 0.107
+        mva_base += toll
+
+    if args.mva:
+        mva = mva_base * 0.25
+
+    goods = [f'· vare {i + 1:<2} {p:>25.2f}' for i, p in enumerate(args.cost)]
+    total = mva_base + mva
+
+    recipt_args = {
+        'cost': cost,
+        'goods': '\n'.join(goods),
+        'discount': discount,
+        'shipping': shipping,
+        'toll': toll,
+        'mva_base': mva_base,
+        'mva': mva,
+        'total': total,
+    }
+
+    template = shopping_receipt if args.verbose else '{total:.2f}'
+    print(template.format(**recipt_args))
+
+
+def do_calculator(args):
+    prog_gui = 'gnome-calculator'
+    prog_cli = 'gcalccmd'
+
+    if args.equation:
+        equation = ' '.join(args.equation)
+        flag = '-e' if args.gui else '-s'
+        subprocess.call(f'{prog_gui} {flag} "{equation}"',
+                        shell=True, stderr=subprocess.DEVNULL)
+    elif args.gui:
+        subprocess.call(prog_gui)
+    else:
+        subprocess.call(prog_cli)
+
+
+def parse_command_line():
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('-e', '--equation', nargs='*',
+                        help='equation expression to solve')
+    parser.add_argument('-g', '--gui', action='store_true',
+                        help='open gnome-calculator gui')
+
+    commands = parser.add_subparsers(title='commands', dest='command')
+
+    p = commands.add_parser('currency', aliases=['c', 'curr'],
+                            help='calculate currency exchanges')
+    p.add_argument('amount', type=float, help='the amount to pay')
+    p.add_argument('transaction', help='the transaction  currency')
+    p.add_argument('payment', help='the payment currency')
+
+    # Retail parser
+    p = commands.add_parser('retail', aliases=['r', 'ret'],
+                            help='calculate retail price')
+    p.add_argument('price', type=float, help='the discount price')
+    p.add_argument('discount', type=float, default=0,
+                   help='the dicount in percent')
+
+    # Discount parser
+    p = commands.add_parser('discount', aliases=['d', 'disc'],
+                            help='calculate discount value')
+    p.add_argument('price', type=float, help='the discount price')
+    p.add_argument('retail', type=float, help='the retail price')
+
+    # Shopping parser
+    p = commands.add_parser('shopping', aliases=['s', 'shop'],
+                            help='calculate shopping costs')
+    p.add_argument('cost', type=float, nargs='+', help='product cost')
+    p.add_argument('-d', '--discount', type=float, default=0,
+                   help='discount to be applied to total product costs')
+    p.add_argument('-s', '--shipping', type=float, default=0,
+                   help='additional shipping costs')
+    p.add_argument('-t', '--toll', action='store_true',
+                   help='calculate toll costs')
+    p.add_argument('-m', '--mva', action='store_true',
+                   help='calculate mva. costs')
+    p.add_argument('-v', '--verbose', action='store_true',
+                   help='show a more verbose receipt calculation')
+
+    return parser.parse_args()
+
+
+def main():
+    args, retval = parse_command_line(), 0
+
+    if args.command in ('c', 'curr', 'currency'):
+        do_currency(args)
+    elif args.command in('d', 'disc', 'discount'):
+        do_discount(args)
+    elif args.command in ('r', 'ret', 'retail'):
+        do_retail(args)
+    elif args.command in ('s', 'shop', 'shopping'):
+        do_shopping(args)
+    else:
+        do_calculator(args)
+
+    return retval
+
+
+if __name__ == '__main__':
+    try:
+        retval = main()
+    except KeyboardInterrupt:
+        retval = -1
+
+    sys.exit(retval)
