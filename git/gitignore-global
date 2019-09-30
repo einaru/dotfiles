@@ -34,9 +34,49 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-## Python
-*.pyc
+# Python: byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python: distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info
+.installed.cfg
+*.egg
+MANIFEST
+
+# Python: Django stuff
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Python: Flask stuff
+instance/
+.webassets-cache
+
+# Python: Environment
+.env
+.venv
+env/
 venv/
+ENV/
+env.bak/
+venv.bak/
 
 ## Gettext
 *.mo
@@ -44,12 +84,14 @@ venv/
 .sass-cache
 tmp/
 .tmp/
+.tmp-*
 build/
 .proto
 proto/
 build.xml
 .vimrc
 node_modules/
+.env
 
 ## Core latex/pdflatex auxiliary files
 *.aux
@@ -59,3 +101,6 @@ node_modules/
 *.fls
 *.out
 *.toc
+
+# Custom
+.patches
