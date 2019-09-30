@@ -12,6 +12,8 @@ alias l.='ls -d .*'
 alias ll.='ls -ld .*'
 alias lls='ls -lA | grep "\->" --color=none'
 
+alias tree='env LC_COLLATE=POSIX tree'
+
 alias grep='grep --color=auto'
 
 alias df='df -hTl -xtmpfs -xdevtmpfs --total'
