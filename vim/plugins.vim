@@ -72,6 +72,8 @@ aug VimCSS3Syntax
 	au FileType css,scss,scss.css setl iskeyword+=-
 aug END
 Plug 'pangloss/vim-javascript'    " Javascript indent and syntax
+Plug 'posva/vim-vue', { 'for': 'vue' }
+let g:vue_pre_processors = ['scss']
 Plug 'mxw/vim-jsx'                " React JSX syntax and indent
 let g:jsx_ext_required = 0        " allow JSX in normal JS files
 Plug 'digitaltoad/vim-pug'        " Pug template engine syntax and indent
