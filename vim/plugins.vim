@@ -60,6 +60,8 @@ let g:ultisnips_python_style="google"
 " Python
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' }
+Plug 'psf/black', {'for': 'python'}
+nmap <f6> :Black<cr>
 
 " Web
 Plug 'Glench/Vim-Jinja2-Syntax'   " Jinja2 syntax
