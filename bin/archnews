@@ -13,53 +13,69 @@ import feedparser
 import shutil
 import time
 
-NEWSURL = 'https://www.archlinux.org/feeds/news/'
-
-
-def _ts_to_dt(ts):
-    """Convert timestamp object to datetime object."""
-    return datetime.datetime.fromtimestamp(time.mktime(ts))
+FEED_URL = "https://www.archlinux.org/feeds/news/"
 
 
 def parse_cmd_line():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d', '--days', metavar='n', type=int, default=30,
-                        help='show news from the last n days')
-    parser.add_argument('-s', '--since', metavar='yyyy-mm-dd',
-                        help='show news between now and a given date')
 
-    args = parser.parse_args()
+    parser.add_argument(
+        "-d",
+        "--days",
+        metavar="n",
+        type=int,
+        default=30,
+        help="show news from the last n days",
+    )
 
-    return args
+    parser.add_argument(
+        "-s",
+        "--since",
+        metavar="yyyy-mm-dd",
+        help="show news between now and a given date",
+    )
+
+    return parser.parse_args()
+
+
+def as_datetime(ts):
+    """Convert timestamp object to datetime object."""
+    return datetime.datetime.fromtimestamp(time.mktime(ts))
 
 
 def pprint_entry(entry, published):
-    date = published.strftime('%c')
+    date = published.strftime("%c")
     title = entry.title
 
     cols, _ = shutil.get_terminal_size()
     width = cols - len(date) - 3
 
     if len(title) > width:
-        title = title[:width - 2] + "…"
+        title = title[: width - 2] + "…"
 
-    print(f'\033[1m{title:{width}}\033[0m ({date})')
-    print(f'└─ \033[0m{entry.link}\033[0m')
+    print(f"\033[1m{title:{width}}\033[0m ({date})")
+    print(f"└─ \033[0m{entry.link}\033[0m")
 
 
-if __name__ == '__main__':
+def main():
     args = parse_cmd_line()
-    feed = feedparser.parse(NEWSURL)
+    feed = feedparser.parse(FEED_URL)
     now = datetime.datetime.now()
 
     if args.since:
-        ts = time.strptime(args.since, '%Y-%m-%d')
-        dt = _ts_to_dt(ts)
-        cutoff = now - dt
+        ts = time.strptime(args.since, "%Y-%m-%d")
+        cutoff = now - as_datetime(ts)
     else:
         cutoff = datetime.timedelta(days=args.days)
 
     for entry in feed.entries:
-        dt = _ts_to_dt(entry.published_parsed)
+        dt = as_datetime(entry.published_parsed)
         if (now - dt) <= cutoff:
             pprint_entry(entry, dt)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit()
