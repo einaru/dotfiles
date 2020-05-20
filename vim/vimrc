@@ -60,8 +60,8 @@ set sidescroll=1
 
 " Indentation
 set autoindent               " copy indent from current line
-set smartindent              " 
-set smarttab                 " 
+set smartindent              " … and be smart about it
+set smarttab                 " smart <TAB> and <BS> behaviour
 set tabstop=4                " number of spaces a <TAB> counts for
 set shiftwidth=4             " number of spaces used for autoindent
 set noexpandtab              " use tabs not spaces
@@ -83,11 +83,15 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 " Add a highlight group to look out for trailing whitespaces
-highlight TrailingWhitespace ctermbg=red guibg=red
-au InsertEnter * match TrailingWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match TrailingWhitespace /\s\+$/
-au BufWinEnter * match TrailingWhitespace /\s\+$/
-au BufWinLeave * call clearmatches()  " avoids memory leak 
+hi TrailingWhitespace ctermbg=red guibg=red
+hi IllegalWhitespace ctermbg=red guibg=red
+augroup HighlightErrors
+	au InsertEnter * match TrailingWhitespace /\s\+\%#\@<!$/
+	au InsertLeave * match TrailingWhitespace /\s\+$/
+	au BufWinEnter * match TrailingWhitespace /\s\+$/
+	au InsertEnter,InsertLeave,BufWinEnter * syn match ErrorMsg " "
+	au BufWinLeave * call clearmatches()  " avoids memory leak
+augroup END
 
 " Highlight current line, but only in active window
 augroup CursorLineOnlyInActiveWindow
@@ -111,31 +115,43 @@ set wildignore+=.git,.gitkeep
 set wildignore+=.sass-cache/
 set wildignore+=*.pyc,__pycache__/,*.egg,*.egg-info
 
+" Completion:
+
+set completeopt-=preview  " Disable completion preview
 
 " Filetypes:
 
 augroup FileTypeDetect
 	au!
 	au BufNewFile,BufRead *mutt-*         setl ft=mail
-	au BufNewFile,BufRead *.md,*.markdown setl ft=markdown tw=79 et
+	au BufNewFile,BufRead *.md,*.markdown setl ft=markdown
 	au BufNewFile,BufRead *.ui,*.page     setl ft=xml
-	au BufNewFile,BufRead *.jade          setl ts=2 sw=2 sts=2 noet
 	au BufNewFile,BufRead .coafile        setl ft=dosini
 	au BufNewFile,BufRead *.qrc           setl ft=xml
+	au BufNewFile,BufRead *.csv           setl ft=csv
 augroup END
 
 augroup FileTypeStyles
 	au!
-	au FileType c,cpp                    setl ts=4 sw=4 sts=4 noet noai cino+=g0 cc=73,80
-	au FileType vala                     setl cc=81,101 list
-	au Filetype python                   setl ts=4 sw=4 sts=4 et nosi cc=89 list
-	au FileType xml                      setl ts=2 sw=2 sts=2 et
-	au FileType html,jinja,xhtml,xsd,ant setl ts=2 sw=2 sts=2 et
-	au FileType javascript               setl ts=4 sw=4 sts=4 et cc=73,80
-	au FileType json                     setl ts=4 sw=4 sts=4 et
-	au FileType config                   setl et
+	au FileType c,cpp                     setl ts=4 sw=4 sts=4 noet noai cino+=g0 cc=73,80
+	au FileType go                        setl cc=89
+	au FileType vala                      setl cc=81,101 nolist
+	au Filetype python                    setl ts=4 sw=4 sts=4 et nosi cc=79,89 list
+	au FileType xml                       setl ts=2 sw=2 sts=2 et
+	au FileType html,jinja,xhtml,xsd,ant  setl ts=2 sw=2 sts=2 et
+	au FileType javascript                setl ts=2 sw=2 sts=2 et cc=79,89
+	au FileType json                      setl ts=2 sw=2 sts=2 et
+	au FileType config                    setl et
+	au FileType markdown                  setl tw=79 et
+	au FileType csv                       setl nowrap
 augroup END
 
+" File explorer
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
 
 " Functions:
 
@@ -236,6 +252,8 @@ imap <4-MiddleMouse> <Nop>
 " Insert timestamps
 nmap <f3> "=strftime("%FT%T%z")<cr>p
 imap <f3> <cr>=strftime("%FT%T%z")<cr>
+
+map <leader>l :set list!<cr>
 
 " Put local configurations in this file
 let $localfile=expand('~/.config/vim/local.vim')
