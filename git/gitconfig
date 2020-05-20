@@ -31,7 +31,8 @@
 	# log commands
 	filelog = log -u
 	fl = log -u
-	ls = log --graph --oneline --decorate
+	ls = log --graph --oneline --decorate -n15
+	ll = log --graph --oneline --decorate
 
 	# reset commands
 	r = reset
