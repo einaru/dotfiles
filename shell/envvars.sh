@@ -23,7 +23,7 @@ if [ -d "$HOME/.poetry/bin" ]; then
 fi
 
 export PATH=$PATH
-export EDITOR='vim'
+export EDITOR='nvim'
 export VISUAL=$EDITOR
 
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
