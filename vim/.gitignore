@@ -1,5 +1,7 @@
+.netrwhist
 autoload/plug.vim
 backup/
+black/
 bundle/
 spell/
 swap/
