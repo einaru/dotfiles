@@ -22,8 +22,6 @@ alias df='df -hTl -xtmpfs -xdevtmpfs --total'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias cdgr='cd "$(git root)"'
-
 has rsync && alias rsync='rsync -avzP'
 
 has vim  && alias vimrs='vim --remote-silent'
