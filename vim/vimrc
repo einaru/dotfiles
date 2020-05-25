@@ -74,7 +74,7 @@ set nolist                   " don't show special characters as default
 " Colors
 set t_Co=256
 set laststatus=2
-set background=dark
+set background=light
 
 try
 	colorscheme PaperColor
