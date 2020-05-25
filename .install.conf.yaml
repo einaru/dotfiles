@@ -16,7 +16,7 @@
     ~/.config/screen: screen
     ~/.config/tmux: tmux
     ~/.config/todo: todo
-    ~/.irssi:
+    ~/.config/irssi: irssi
     ~/.local/share/nvim/site/autoload: vim/autoload
     ~/.pam_environment: pam/environment
     ~/.shell:
