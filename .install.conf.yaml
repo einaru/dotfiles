@@ -13,12 +13,12 @@
     ~/.config/mpv: mpv
     ~/.config/npm: npm
     ~/.config/nvim: nvim
+    ~/.config/screen: screen
     ~/.config/tmux: tmux
     ~/.config/todo: todo
     ~/.irssi:
     ~/.local/share/nvim/site/autoload: vim/autoload
     ~/.pam_environment: pam/environment
-    ~/.screenrc:
     ~/.shell:
     ~/.vim:
     ~/.zsh:
