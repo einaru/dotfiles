@@ -44,7 +44,7 @@ if has google-chrome-stable; then
 fi
 
 if has todo.sh; then
-	TODOTXT_CFG_FILE="$HOME/.config/todo.cfg"
+	TODOTXT_CFG_FILE="$HOME/.config/todo/todo.cfg"
 	alias todo.sh="todo.sh -d $TODOTXT_CFG_FILE"
 	alias t="todo.sh -d $TODOTXT_CFG_FILE"
 	unset TODOTXT_CFG_FILE

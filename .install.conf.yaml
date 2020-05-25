@@ -12,8 +12,8 @@
     ~/.config/git: git
     ~/.config/mpv: mpv
     ~/.config/nvim: nvim
-    ~/.config/todo.cfg: todo.cfg
     ~/.config/tmux: tmux
+    ~/.config/todo: todo
     ~/.irssi:
     ~/.local/share/nvim/site/autoload: vim/autoload
     ~/.npmrc:
