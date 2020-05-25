@@ -9,11 +9,10 @@
 - link:
     ~/.bashrc:
     ~/.bash: bash
+    ~/.config/git: git
     ~/.config/mpv: mpv
     ~/.config/nvim: nvim
     ~/.config/todo.cfg: todo.cfg
-    ~/.gitconfig: git/gitconfig
-    ~/.gitignore-global: git/gitignore-global
     ~/.irssi:
     ~/.local/share/nvim/site/autoload: vim/autoload
     ~/.npmrc:
