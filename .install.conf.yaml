@@ -17,6 +17,7 @@
     ~/.irssi:
     ~/.local/share/nvim/site/autoload: vim/autoload
     ~/.npmrc:
+    ~/.pam_environment: pam/environment
     ~/.screenrc:
     ~/.shell:
     ~/.vim:
