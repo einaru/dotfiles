@@ -11,12 +11,12 @@
     ~/.bash: bash
     ~/.config/git: git
     ~/.config/mpv: mpv
+    ~/.config/npm: npm
     ~/.config/nvim: nvim
     ~/.config/tmux: tmux
     ~/.config/todo: todo
     ~/.irssi:
     ~/.local/share/nvim/site/autoload: vim/autoload
-    ~/.npmrc:
     ~/.pam_environment: pam/environment
     ~/.screenrc:
     ~/.shell:
