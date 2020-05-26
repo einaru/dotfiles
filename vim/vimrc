@@ -123,27 +123,27 @@ set completeopt-=preview  " Disable completion preview
 
 augroup FileTypeDetect
 	au!
-	au BufNewFile,BufRead *mutt-*         setl ft=mail
-	au BufNewFile,BufRead *.md,*.markdown setl ft=markdown
-	au BufNewFile,BufRead *.ui,*.page     setl ft=xml
-	au BufNewFile,BufRead .coafile        setl ft=dosini
-	au BufNewFile,BufRead *.qrc           setl ft=xml
 	au BufNewFile,BufRead *.csv           setl ft=csv
+	au BufNewFile,BufRead *.md,*.markdown setl ft=markdown
+	au BufNewFile,BufRead *.qrc           setl ft=xml
+	au BufNewFile,BufRead *.ui,*.page     setl ft=xml
+	au BufNewFile,BufRead *mutt-*         setl ft=mail
+	au BufNewFile,BufRead .coafile        setl ft=dosini
 augroup END
 
 augroup FileTypeStyles
 	au!
 	au FileType c,cpp                     setl ts=4 sw=4 sts=4 noet noai cino+=g0 cc=73,80
+	au FileType config                    setl et
+	au FileType csv                       setl nowrap
 	au FileType go                        setl cc=89
-	au FileType vala                      setl cc=81,101 nolist
-	au Filetype python                    setl ts=4 sw=4 sts=4 et nosi cc=79,89 list
-	au FileType xml                       setl ts=2 sw=2 sts=2 et
 	au FileType html,jinja,xhtml,xsd,ant  setl ts=2 sw=2 sts=2 et
 	au FileType javascript                setl ts=2 sw=2 sts=2 et cc=79,89
 	au FileType json                      setl ts=2 sw=2 sts=2 et
-	au FileType config                    setl et
 	au FileType markdown                  setl tw=79 et
-	au FileType csv                       setl nowrap
+	au FileType vala                      setl cc=81,101 nolist
+	au FileType xml                       setl ts=2 sw=2 sts=2 et
+	au Filetype python                    setl ts=4 sw=4 sts=4 et nosi cc=79,89 list
 augroup END
 
 " File explorer
