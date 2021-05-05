@@ -3,12 +3,18 @@
 	email = einar.uvslokk@gmail.com
 
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore-global
+	editor = nvim
+	excludesfile = ~/.config/git/ignore
 	quotePath = false
 
 [include]
 	path = ~/.gitconfig-local
+
+[init]
+	defaultBranch = master
+
+[pull]
+	ff = only
 
 [merge]
 	tool = vimdiff
