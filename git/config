@@ -1,63 +1,63 @@
 [user]
-	name = Einar Uvsløkk
-	email = einar.uvslokk@gmail.com
+name = Einar Uvsløkk
+email = einar.uvslokk@gmail.com
 
 [core]
-	editor = nvim
-	excludesfile = ~/.config/git/ignore
-	quotePath = false
+editor = nvim
+excludesfile = ~/.config/git/ignore
+quotePath = false
 
 [include]
-	path = ~/.gitconfig-local
+path = ~/.gitconfig-local
 
 [init]
-	defaultBranch = master
+defaultBranch = master
 
 [pull]
-	ff = only
+ff = only
 
 [merge]
-	tool = vimdiff
+tool = vimdiff
 
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+branch = auto
+diff = auto
+status = auto
 
 [alias]
-	st = status -s
-	amend = commit --amend
+st = status -s
+amend = commit --amend
 
-	b = branch
+b = branch
 
-	c = commit
+c = commit
 
-	co = checkout
+co = checkout
 
-	# log commands
-	filelog = log -u
-	fl = log -u
-	ls = log --graph --oneline --decorate -n15
-	ll = log --graph --oneline --decorate
+# log commands
+filelog = log -u
+fl = log -u
+ls = log --graph --oneline --decorate -n15
+ll = log --graph --oneline --decorate
 
-	# reset commands
-	r = reset
-	r1 = reset HEAD^
-	r2 = reset HEAD^^
-	rh = reset --hard
-	rh1 = reset HEAD^ --hard
-	rh2 = reset HEAD^^ --hard
+# reset commands
+r = reset
+r1 = reset HEAD^
+r2 = reset HEAD^^
+rh = reset --hard
+rh1 = reset HEAD^ --hard
+rh2 = reset HEAD^^ --hard
 
-	# list remotes
-	rem = "!git config -l | grep remote.*url | tail -n +2"
+# list remotes
+rem = "!git config -l | grep remote.*url | tail -n +2"
 
-	root = rev-parse --show-toplevel
+root = rev-parse --show-toplevel
 
-	update-submodules = submodule update --init --recursive
+update-submodules = submodule update --init --recursive
 
-	# Archiving
-	tar = ! "tar() { git archive --format tar --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; tar"
-	targz = ! "targz() { git archive --format tar.gz --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; targz"
-	zip = ! "zip() { git archive --format zip --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; zip"
+# Archiving
+tar = ! "tar() { git archive --format tar --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; tar"
+targz = ! "targz() { git archive --format tar.gz --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; targz"
+zip = ! "zip() { git archive --format zip --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; zip"
 
-	todo = grep -n -e TODO -e FIXME -e XXX
+todo = grep -n -e TODO -e FIXME -e XXX
