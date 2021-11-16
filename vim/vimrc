@@ -74,8 +74,7 @@ set nolist                   " don't show special characters as default
 " Colors
 set t_Co=256
 set laststatus=2
-set background=light
-
+set background=dark
 try
 	colorscheme PaperColor
 catch /^Vim\%((\a\+)\)\=:E185/
@@ -121,30 +120,40 @@ set completeopt-=preview  " Disable completion preview
 
 " Filetypes:
 
+au BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
+
 augroup FileTypeDetect
 	au!
-	au BufNewFile,BufRead *mutt-*         setl ft=mail
-	au BufNewFile,BufRead *.md,*.markdown setl ft=markdown
-	au BufNewFile,BufRead *.ui,*.page     setl ft=xml
-	au BufNewFile,BufRead .coafile        setl ft=dosini
-	au BufNewFile,BufRead *.qrc           setl ft=xml
-	au BufNewFile,BufRead *.csv           setl ft=csv
+	au BufNewFile,BufRead *.csv                set ft=csv
+	au BufNewFile,BufRead *.md,*.markdown      set ft=markdown
+	au BufNewFile,BufRead *.page               set ft=xml
+	au BufNewFile,BufRead *.qrc                set ft=xml
+	au BufNewFile,BufRead *.tex                set ft=tex
+	au BufNewFile,BufRead *.ui                 set ft=xml
+	au BufNewFile,BufRead *.xmi                set ft=xml
+	au BufNewFile,BufRead *mutt-*              set ft=mail
+	au BufNewFile,BufRead .coafile             set ft=dosini
+	au BufNewFile,BufRead .latexmkrc,latexmkrc set ft=perl
 augroup END
 
 augroup FileTypeStyles
 	au!
-	au FileType c,cpp                     setl ts=4 sw=4 sts=4 noet noai cino+=g0 cc=73,80
-	au FileType go                        setl cc=89
-	au FileType vala                      setl cc=81,101 nolist
-	au Filetype python                    setl ts=4 sw=4 sts=4 et nosi cc=79,89 list
-	au FileType xml                       setl ts=2 sw=2 sts=2 et
-	au FileType html,jinja,xhtml,xsd,ant  setl ts=2 sw=2 sts=2 et
-	au FileType javascript                setl ts=2 sw=2 sts=2 et cc=79,89
-	au FileType json                      setl ts=2 sw=2 sts=2 et
-	au FileType config                    setl et
-	au FileType markdown                  setl tw=79 et
-	au FileType csv                       setl nowrap
+	au FileType c,cpp                    set ts=4 sw=4 sts=4 noet noai cino+=g0 cc=73,80
+	au FileType config                   set et
+	au FileType css                      set et ts=2 sw=2 sts=2
+	au FileType csv                      set nowrap
+	au FileType go                       set cc=89
+	au FileType html,jinja,xhtml,xsd,ant set ts=4 sw=4 sts=4 et
+	au FileType javascript               set ts=2 sw=2 sts=2 et cc=79,89
+	au FileType json                     set ts=2 sw=2 sts=2 et
+	au FileType markdown                 set et
+	au FileType python                   set ts=4 sw=4 sts=4 et nosi cc=79,89 list
+	au FileType vala                     set cc=81,101 nolist
+	au FileType xml                      set ts=2 sw=2 sts=2 et
+	au FileType yaml                     set ts=2 sw=2 sts=2 et
 augroup END
+
+let g:tex_flavor = "latex"
 
 " File explorer
 let g:netrw_banner = 0
@@ -187,19 +196,6 @@ nmap <leader>cc :call ToggleColorColumn()<cr>
 nmap <c-pageup> :bprev<cr>
 nmap <c-pagedown> :bnext<cr>
 
-" Make alt-combinations work in terminals
-" See: http://stackoverflow.com/a/10216459
-try
-	let keys=['1', '2', '3', 'j', 'k']
-	for k in keys
-		exec "set <a-" . k . ">=\e" . k
-		exec "imap \e" . k . " <a-" . k . ">"
-	endfor
-	set ttimeout ttimeoutlen=50
-catch
-	" Nothing
-endtry
-
 nmap <a-1> :bprev<cr>
 nmap <a-2> :bnext<cr>
 nmap <a-3> :buffers<cr>
@@ -228,6 +224,23 @@ vnoremap // y/<c-r>"<cr>
 xnoremap <leader>so :sort<cr>
 xnoremap <leader>si :sort i<cr>
 
+" FIXME: This somehow messes up d<arrow> for deleting lines?
+"" Moving the cursor through wrapped lines
+"" Ref: https://stackoverflow.com/a/21000307
+"noremap <expr> j      v:count ? 'j'      : 'gj'
+"noremap <expr> k      v:count ? 'k'      : 'gk'
+"noremap <expr> <Down> v:count ? '<Down>' : 'gj'
+"noremap <expr> <Up>   v:count ? '<Up>'   : 'gk'
+
+" set columns=80
+" autocmd VimResized * if (&columns > 80) | set columns=80 | endif
+" set wrap
+" set linebreak
+set showbreak=↪
+
+" edit file under cursor
+noremap mf :e <cfile><cr>
+
 " Run make
 map <leader>m :!make<cr>
 map <leader>sm :silent make<cr>
@@ -253,7 +266,12 @@ imap <4-MiddleMouse> <Nop>
 nmap <f3> "=strftime("%FT%T%z")<cr>p
 imap <f3> <cr>=strftime("%FT%T%z")<cr>
 
+map <leader>t :put =strftime('%Y-%m-%d')<cr>
+
+nmap <a-z> :set wrap!<cr>
 map <leader>l :set list!<cr>
+
+inoremap <c-space> <c-x><c-o>
 
 " Put local configurations in this file
 let $localfile=expand('~/.config/vim/local.vim')

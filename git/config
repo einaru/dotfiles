@@ -1,57 +1,70 @@
 [user]
-	name = Einar Uvsløkk
-	email = einar.uvslokk@gmail.com
+name = Einar Uvsløkk
+email = einar.uvslokk@gmail.com
 
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore-global
-	quotePath = false
+editor = nvim
+excludesfile = ~/.config/git/ignore
+quotePath = false
 
 [include]
-	path = ~/.gitconfig-local
+path = ~/.gitconfig-local
+
+[init]
+defaultBranch = master
+
+[pull]
+ff = only
 
 [merge]
-	tool = vimdiff
+tool = vimdiff
 
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+branch = auto
+diff = auto
+status = auto
 
 [alias]
-	st = status -s
-	amend = commit --amend
+st = status -s
+amend = commit --amend
 
-	b = branch
+b = branch
 
-	c = commit
+c = commit
 
-	co = checkout
+co = checkout
 
-	# log commands
-	filelog = log -u
-	fl = log -u
-	ls = log --graph --oneline --decorate -n15
-	ll = log --graph --oneline --decorate
+d = diff
 
-	# reset commands
-	r = reset
-	r1 = reset HEAD^
-	r2 = reset HEAD^^
-	rh = reset --hard
-	rh1 = reset HEAD^ --hard
-	rh2 = reset HEAD^^ --hard
+# log commands
+filelog = log -u
+fl = log -u
+ls = log --graph --oneline --decorate -n15
+ll = log --graph --oneline --decorate
 
-	# list remotes
-	rem = "!git config -l | grep remote.*url | tail -n +2"
+# reset commands
+r = reset
+r1 = reset HEAD^
+r2 = reset HEAD^^
+rh = reset --hard
+rh1 = reset HEAD^ --hard
+rh2 = reset HEAD^^ --hard
 
-	root = rev-parse --show-toplevel
+save = commit -am "chore: savepoint"
+undo = reset HEAD~1 --mixed
 
-	update-submodules = submodule update --init --recursive
+# list remotes
+rem = "!git config -l | grep remote.*url | tail -n +2"
 
-	# Archiving
-	tar = ! "tar() { git archive --format tar --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; tar"
-	targz = ! "targz() { git archive --format tar.gz --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; targz"
-	zip = ! "zip() { git archive --format zip --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; zip"
+root = rev-parse --show-toplevel
 
-	todo = grep -n -e TODO -e FIXME -e XXX
+update-submodules = submodule update --init --recursive
+
+# Archiving
+tar = ! "tar() { git archive --format tar --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; tar"
+targz = ! "targz() { git archive --format tar.gz --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; targz"
+zip = ! "zip() { git archive --format zip --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; zip"
+
+todo = grep -n -e TODO -e FIXME -e XXX
+
+# vim: set ft=dosini:

@@ -43,4 +43,4 @@ convert "$ifile" -background white \
 	\( -clone 0 -resize 16x16 -extent 16x16 \) \
 	\( -clone 0 -resize 32x32 -extent 32x32 \) \
 	\( -clone 0 -resize 48x48 -extent 48x48 \) \
-	-delete 0 -alpha off "$ofile"
+	-delete 0 -alpha on "$ofile"

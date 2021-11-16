@@ -78,6 +78,9 @@ ENV/
 env.bak/
 venv.bak/
 
+# Python: Jupyter
+.ipynb_checkpoints
+
 ## Gettext
 *.mo
 
@@ -108,3 +111,15 @@ node_modules/
 # GNOME stuff
 gschemas.compiled
 .buildconfig
+
+ISSUES.md
+TODO.md
+
+.metadata/
+bin/
+#src-gen/
+
+#.classpath
+#.project
+
+#.vscode/

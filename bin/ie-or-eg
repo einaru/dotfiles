@@ -15,7 +15,7 @@ ie = {
              'was previously stated. This information is finite, meaning the '
              'only possibilities are the things you list after the "i.e.".',
     'replace': 'in other words',
-    'latin': 'id est',
+    'origin': 'latin: id est',
     'english': 'that is',
 }
 eg = {
@@ -24,8 +24,15 @@ eg = {
              'previously. Using "e.g." means there are more possibilities '
              'than the one you are stating.',
     'replace': 'for example',
-    'latin': 'exempli gratia',
+    'origin': 'latin: exempli gratia',
     'english': 'for the sake of example',
+}
+ala = {
+    'term': "à la",
+    "usage": "",
+    "replace": "in the style of manner of",
+    "origin": "french: à la mode",
+    "english": "in the style or manner of",
 }
 
 # TODO:2014-10-17:einar: fix word wrapping when printing lines > term width
@@ -37,9 +44,9 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    for kw in [ie, eg]:
+    for kw in [ie, eg, ala]:
         if args.verbose:
-            print('{term} "{latin}", meaning "{english}"'.format(**kw))
+            print('{term} "{origin}", meaning "{english}"'.format(**kw))
             print('Replace with "{replace}".\n{usage}'.format(**kw))
             print()
         else:

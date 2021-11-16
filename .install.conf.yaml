@@ -9,16 +9,13 @@
 - link:
     ~/.bashrc:
     ~/.bash: bash
-    ~/.config/mpv: mpv
-    ~/.config/nvim: nvim
-    ~/.config/todo.cfg: todo.cfg
     ~/.config/git: git
-    ~/.irssi:
-    ~/.local/share/nvim/site/autoload: vim/autoload
-    ~/.npmrc:
-    ~/.screenrc:
+    ~/.config/mpv: mpv
+    ~/.config/npm: npm
+    ~/.config/nvim: nvim
+    ~/.config/todo: todo
+    ~/.pam_environment: pam/environment
     ~/.shell:
-    ~/.tmux.conf:
     ~/.vim:
     ~/.zsh:
     ~/.zshrc:
@@ -27,4 +24,3 @@
     - touch ~/.histfile
     - git submodule update --init --recursive
     - mkdir -p ~/.local/share/nvim/site
-#    - vim +PluginInstall! +qall
