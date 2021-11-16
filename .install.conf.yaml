@@ -14,7 +14,6 @@
     ~/.config/npm: npm
     ~/.config/nvim: nvim
     ~/.config/todo: todo
-    ~/.local/share/nvim/site/autoload: vim/autoload
     ~/.pam_environment: pam/environment
     ~/.shell:
     ~/.vim:
@@ -25,4 +24,3 @@
     - touch ~/.histfile
     - git submodule update --init --recursive
     - mkdir -p ~/.local/share/nvim/site
-#    - vim +PluginInstall! +qall
