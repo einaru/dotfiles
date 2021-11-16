@@ -13,7 +13,6 @@
     ~/.config/mpv: mpv
     ~/.config/npm: npm
     ~/.config/nvim: nvim
-    ~/.config/tmux: tmux
     ~/.config/todo: todo
     ~/.config/irssi: irssi
     ~/.local/share/nvim/site/autoload: vim/autoload
