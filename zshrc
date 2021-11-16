@@ -1,7 +1,7 @@
 setopt autocd
 unsetopt beep
 bindkey -e
-zstyle :compinstall filename $HOME/.zshrc
+zstyle :compinstall filename ~/.zshrc
 
 HISTFILE=$HOME/.histfile
 HISTSIZE=10000
@@ -20,11 +20,11 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
-bindkey "$terminfo[kcud1]" down-line-or-beginning-search
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
 
-fpath=($HOME/.zsh/fpath $fpath)
-[ -d $HOME/.config/zsh/fpath ] && fpath=($HOME/.config/zsh/fpath $fpath)
+fpath=(~/.zsh/fpath $fpath)
+[ -d ~/.config/zsh/fpath ] && fpath=(~/.config/zsh/fpath $fpath)
 
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
@@ -35,15 +35,5 @@ PURE_CMD_MAX_EXEC_TIME=10
 PURE_PROMPT_SYMBOL='>'
 prompt pure
 
-source ~/.shell/xdg.sh
-source ~/.shell/envvars.sh
-source ~/.shell/aliases.sh
-source ~/.shell/functions.sh
-
-# Add local zsh configurations in this file
-if [ -f ~/.config/zsh/local.zsh ]; then
-	source ~/.config/zsh/local.zsh
-fi
-
-export PATH="$HOME/.poetry/bin:$PATH"
-eval "$(pyenv init -)"
+#source ~/.shell/xdg.sh
+source ~/.shell/config.sh
