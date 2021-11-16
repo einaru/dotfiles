@@ -35,6 +35,7 @@ PURE_CMD_MAX_EXEC_TIME=10
 PURE_PROMPT_SYMBOL='>'
 prompt pure
 
+source ~/.shell/xdg.sh
 source ~/.shell/envvars.sh
 source ~/.shell/aliases.sh
 source ~/.shell/functions.sh
@@ -43,3 +44,6 @@ source ~/.shell/functions.sh
 if [ -f ~/.config/zsh/local.zsh ]; then
 	source ~/.config/zsh/local.zsh
 fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
+eval "$(pyenv init -)"
