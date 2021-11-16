@@ -34,6 +34,8 @@ c = commit
 
 co = checkout
 
+d = diff
+
 # log commands
 filelog = log -u
 fl = log -u
@@ -47,6 +49,9 @@ r2 = reset HEAD^^
 rh = reset --hard
 rh1 = reset HEAD^ --hard
 rh2 = reset HEAD^^ --hard
+
+save = commit -am "chore: savepoint"
+undo = reset HEAD~1 --mixed
 
 # list remotes
 rem = "!git config -l | grep remote.*url | tail -n +2"
