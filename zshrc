@@ -37,3 +37,5 @@ prompt pure
 
 #source ~/.shell/xdg.sh
 source ~/.shell/config.sh
+
+[ -f ~/.config/zsh/local.zsh ] && source ~/.config/zsh/local.zsh
