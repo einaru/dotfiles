@@ -39,7 +39,7 @@ alias mv='mv -i'
 alias open='gio open'
 alias peek='tee >(cat 1>&2)'
 alias yeet='yay -Rncs'
-alias mypkgs='expac "%n %p% | grep "Einar Uvsløkk" | column -t'
+alias mypkgs='expac "%n %p%" | grep "Einar Uvsløkk" | column -t'
 
 # Functions
 # --------------------------------------------------------------------------- #
