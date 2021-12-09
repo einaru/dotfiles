@@ -27,6 +27,7 @@ status = auto
 [alias]
 st = status -s
 amend = commit --amend
+squash = rebase -i
 
 b = branch
 
