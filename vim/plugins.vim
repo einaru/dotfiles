@@ -29,7 +29,7 @@ Plug 'junegunn/limelight.vim'
 let g:goyo_linenr = 1
 nmap <leader>g :Goyo<cr>
 Plug 'lervag/vimtex', { 'for': 'tex' }
-let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_enabled = 0
 let g:vimtex_complete_bib_simple = 1
 Plug 'preservim/vim-wordy'
 Plug 'junegunn/vim-easy-align'
