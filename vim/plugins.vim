@@ -77,6 +77,7 @@ let g:vue_pre_processors = ['scss']
 
 " R
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+let R_assign = 0
 
 " HTML and CSS
 Plug 'hail2u/vim-css3-syntax'
