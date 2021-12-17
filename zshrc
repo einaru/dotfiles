@@ -35,7 +35,7 @@ PURE_CMD_MAX_EXEC_TIME=10
 PURE_PROMPT_SYMBOL='>'
 prompt pure
 
-#source ~/.shell/xdg.sh
+source ~/.shell/xdg.sh
 source ~/.shell/config.sh
 
 [ -f ~/.config/zsh/local.zsh ] && source ~/.config/zsh/local.zsh
