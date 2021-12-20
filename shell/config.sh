@@ -18,6 +18,7 @@ unset -f prepend_path
 export PATH=$PATH
 export EDITOR='nvim'
 export VISUAL=$EDITOR
+export GOPATH="$HOME/.go"
 
 # Aliases
 # --------------------------------------------------------------------------- #
