@@ -20,8 +20,13 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey '\e[A' up-line-or-beginning-search
-bindkey '\e[B' down-line-or-beginning-search
+bindkey '\e[A'  up-line-or-beginning-search    # up
+bindkey '\e[B'  down-line-or-beginning-search  # down
+bindkey '\e[5~' up-line-or-beginning-search    # page-up
+bindkey '\e[6~' down-line-or-beginning-search  # page-down
+bindkey '\e[3~' delete-char                    # delete
+bindkey '\e[H'  beginning-of-line              # home
+bindkey '\e[F'  end-of-line                    # end
 
 fpath=(~/.zsh/fpath $fpath)
 [ -d ~/.config/zsh/fpath ] && fpath=(~/.config/zsh/fpath $fpath)
