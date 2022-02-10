@@ -13,6 +13,7 @@
     ~/.config/mpv: mpv
     ~/.config/npm: npm
     ~/.config/nvim: nvim
+    ~/.config/tmux: tmux
     ~/.config/todo: todo
     ~/.pam_environment: pam/environment
     ~/.shell:
