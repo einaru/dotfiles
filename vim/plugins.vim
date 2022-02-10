@@ -84,6 +84,9 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'ap/vim-css-color'
 
+" GraphQL
+Plug 'jparise/vim-graphql'
+
 " Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<tab>"
