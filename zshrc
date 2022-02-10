@@ -42,5 +42,7 @@ prompt pure
 
 source ~/.shell/xdg.sh
 source ~/.shell/config.sh
+source ~/.shell/android.sh
+source ~/.shell/tilix.sh
 
 [ -f ~/.config/zsh/local.zsh ] && source ~/.config/zsh/local.zsh
