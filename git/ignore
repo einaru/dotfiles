@@ -70,7 +70,6 @@ instance/
 .webassets-cache
 
 # Python: Environment
-.env
 .venv
 env/
 venv/
@@ -123,3 +122,6 @@ bin/
 #.project
 
 #.vscode/
+.errors
+.eslintignore
+.keys
