@@ -1,14 +1,14 @@
-## Compiled source
-*.com
+# General ------------------------------------------------------------------- #
+
+# Compiled source
 *.class
+*.com
 *.dll
 *.exe
 *.o
 *.so
 
-## Packages
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
+# Archives
 *.7z
 *.dmg
 *.gz
@@ -18,110 +18,171 @@
 *.tar
 *.zip
 
-## Logs and databases
+# Logs and databases
 *.log
 *.db
-#*.sql
 *.sqlite
 
-## OS generated files
+# OS generated files
+._*
 .DS_Store
 .DS_Store?
-._*
 .Spotlight-V100
 .Trashes
-Icon?
 ehthumbs.db
+Icon?
 Thumbs.db
 
-# Python: byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# Go ------------------------------------------------------------------------ #
 
-# Python: distribution / packaging
+# Binaries for programs and plugins
+*.dll
+*.dylib
+*.exe
+*.exe~
+*.so
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+
+# Go Patch
+/Godeps/
+/vendor/
+
+# Python -------------------------------------------------------------------- #
+
+# Byte-compiled / optimized / DLL files
+*$py.class
+*.py[cod]
+__pycache__/
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+.eggs/
+.installed.cfg
 .Python
 build/
 develop-eggs/
 dist/
 downloads/
 eggs/
-.eggs/
 lib/
 lib64/
+MANIFEST
 parts/
 sdist/
+share/python-wheels/
 var/
 wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info
-.installed.cfg
-*.egg
-MANIFEST
 
-# Python: Django stuff
-local_settings.py
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-delete-this-directory.txt
+pip-log.txt
+
+# Unit test / coverage reports
+*.cover
+*.py,cover
+.cache
+.coverage
+.coverage.*
+.hypothesis/
+.nox/
+.pytest_cache/
+.tox/
+cover/
+coverage.xml
+htmlcov/
+nosetests.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff
+*.log
 db.sqlite3
 db.sqlite3-journal
+local_settings.py
 
-# Python: Flask stuff
+# Flask stuff
 instance/
 .webassets-cache
 
-# Python: Environment
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+# Scrapy stuff
+.scrapy
 
-# Python: Jupyter
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
 .ipynb_checkpoints
 
-## Gettext
-*.mo
+# IPython
+ipython_config.py
+profile_default/
 
-.sass-cache
-tmp/
-.tmp/
-.tmp-*
-build/
-.proto
-proto/
-build.xml
-.vimrc
+# Javascript ---------------------------------------------------------------- #
+
 node_modules/
-.env
 
-## Core latex/pdflatex auxiliary files
+# LaTeX --------------------------------------------------------------------- #
+
+# Core latex/pdflatex auxiliary files
 *.aux
+*.fls
 *.lof
 *.log
 *.lot
-*.fls
 *.out
 *.toc
 
-# Custom
+# VS Code ------------------------------------------------------------------- #
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Custom -------------------------------------------------------------------- #
+
+# Temp files
+
 .patches
+.proto
+.tmp-*
+.tmp/
+build.xml
+build/
+proto/
+temp/
+tmp/
+
+# Secrets and credentials
+*.key.*
+.env
+.keys/
 
 # GNOME stuff
 gschemas.compiled
 .buildconfig
 
-ISSUES.md
-TODO.md
-
-.metadata/
-bin/
-#src-gen/
-
-#.classpath
-#.project
-
-#.vscode/
-.errors
-.eslintignore
-.keys
