@@ -1,7 +1,3 @@
-[user]
-name = Einar Uvsløkk
-email = einar.uvslokk@gmail.com
-
 [core]
 editor = nvim
 excludesfile = ~/.config/git/ignore
