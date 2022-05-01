@@ -12,6 +12,7 @@ prepend_path "$HOME/.local/share/node_modules/bin"
 prepend_path "$HOME/.dotfiles/bin"
 prepend_path "$HOME/.local/bin"
 prepend_path "$HOME/.poetry/bin"
+prepend_path "$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 unset -f prepend_path
 
