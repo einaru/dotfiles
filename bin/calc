@@ -139,16 +139,17 @@ def parse_command_line():
 def main():
     args, retval = parse_command_line(), 0
 
-    if args.command in ('c', 'curr', 'currency'):
-        do_currency(args)
-    elif args.command in('d', 'disc', 'discount'):
-        do_discount(args)
-    elif args.command in ('r', 'ret', 'retail'):
-        do_retail(args)
-    elif args.command in ('s', 'shop', 'shopping'):
-        do_shopping(args)
-    else:
-        do_calculator(args)
+    match args.command:
+        case ('c' | 'curr' | 'currency'):
+            do_currency(args)
+        case ('d' | 'disc' | 'discount'):
+            do_discount(args)
+        case ('r' | 'ret' | 'retail'):
+            do_retail(args)
+        case ('s' | 'shop' | 'shopping'):
+            do_shopping(args)
+        case _:
+            do_calculator(args)
 
     return retval
 
